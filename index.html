@@ -10,7 +10,7 @@
             font-family: 'DejaVu Sans Mono', monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #3a0ca3, #6a0dad, #ff69b4, #ff4500, #ffa500);
+            background: linear-gradient(to bottom, #3a0ca3 30%, #6a0dad 20%, #ff69b4 15%, #ff4500 15%, #ffa500 20%);
             color: #ffffff;
             transition: background 4s ease;
             overflow-x: hidden;
@@ -19,9 +19,9 @@
 
         header {
             position: fixed;
-            top: 50%;
+            top: 20%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 0);
             text-align: center;
             transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
         }
@@ -66,6 +66,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             padding: 50px;
+            margin-top: 30vh;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1.5s ease, transform 1.5s ease;
@@ -88,7 +89,7 @@
         }
 
         .spacer {
-            height: 100vh;
+            height: 120vh;
         }
     </style>
     <script>
@@ -100,12 +101,12 @@
 
             // Make "EMILY XING" move to near the top and fade out subtitle
             if (scrollY > 100) {
-                header.style.top = '15%';
+                header.style.top = '10%';
                 header.style.transform = 'translate(-50%, 0)';
                 subheading.style.opacity = '0';
             } else {
-                header.style.top = '50%';
-                header.style.transform = 'translate(-50%, -50%)';
+                header.style.top = '20%';
+                header.style.transform = 'translate(-50%, 0)';
                 subheading.style.opacity = '1';
             }
 
@@ -118,8 +119,8 @@
 </head>
 <body>
     <header>
-        <h1>EMILY XING</h1>
-        <div class="subheading">Impact @ the intersections of science, tech & stories</div>
+        <h1>emily xing</h1>
+        <div class="subheading">exploring science, society & stories</div>
     </header>
 
     <div class="spacer"></div>
