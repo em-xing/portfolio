@@ -5,8 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #3a0ca3, #ff6f61);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: background 2s ease;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.5s ease;
+            opacity: 1;
+        }
+
+        header.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            transition: font-size 0.5s ease, transform 0.5s ease;
+        }
+
+        .subheading {
+            font-size: 1.2em;
+            margin-top: 10px;
+            border-right: 2px solid #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 30ch;
+            animation: typing 4s steps(30, end), blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 30ch;
+            }
+        }
+
+        @keyframes blink {
+            from {
+                border-color: transparent;
+            }
+            to {
+                border-color: #ffffff;
+            }
+        }
+
+        .content {
+            text-align: center;
+            font-size: 1em;
+            margin-top: 150px;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        .scrolled h1 {
+            font-size: 2em;
+            transform: translateY(-50px);
+        }
+
+        .scrolled .subheading {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scrolled header {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const body = document.body;
+            const scrollY = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const percentage = scrollY / maxScroll;
+
+            const hueStart = 220; // Blue-ish
+            const hueEnd = 10;   // Sunset red
+            const lightnessStart = 30;
+            const lightnessEnd = 10;
+
+            const hue = hueStart + (hueEnd - hueStart) * percentage;
+            const lightness = lightnessStart + (lightnessEnd - lightnessStart) * percentage;
+
+            body.style.background = `linear-gradient(to bottom, hsl(${hue}, 80%, ${lightness}%), hsl(${hue + 40}, 80%, ${lightness}%))`;
+
+            const header = document.querySelector('header');
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
