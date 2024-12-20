@@ -19,18 +19,23 @@
 
         header {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Ensures header takes up full viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
             z-index: 2;
+            background: linear-gradient(to bottom, rgba(28, 37, 65, 1), rgba(28, 37, 65, 0)); /* Fade effect at bottom */
+            pointer-events: none; /* Ensures the header doesn't block scrolling */
         }
 
         h1 {
             font-size: 3em;
             margin: 0;
-            transition: font-size 0.5s ease;
         }
 
         .subheading {
@@ -62,16 +67,8 @@
         }
 
         .content {
+            margin-top: 100vh; /* Pushes content below header */
             padding: 50px;
-            margin-top: 120vh;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .content.fade-out {
-            opacity: 0;
-            transform: translateY(50px);
         }
 
         .column {
@@ -99,29 +96,6 @@
             margin-top: 50px;
         }
     </style>
-    <script>
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            const content = document.querySelector('.content');
-            const scrollY = window.scrollY;
-
-            // Adjust header position
-            if (scrollY > 100) {
-                header.style.top = '10%';
-                header.style.transform = 'translate(-50%, 0)';
-            } else {
-                header.style.top = '50%';
-                header.style.transform = 'translate(-50%, -50%)';
-            }
-
-            // Fade out content before overlap with header
-            if (scrollY > 200 && scrollY < 400) {
-                content.classList.add('fade-out');
-            } else {
-                content.classList.remove('fade-out');
-            }
-        });
-    </script>
 </head>
 <body>
     <header>
