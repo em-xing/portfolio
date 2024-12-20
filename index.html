@@ -10,7 +10,7 @@
             font-family: 'DejaVu Sans Mono', monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #1c2541 50%, #3a506b 30%, #5bc0be 20%);
+            background: linear-gradient(to bottom, #1c2541, #3a506b, #5bc0be, #eac0f1);
             color: #ffffff;
             transition: background 4s ease;
             overflow-x: hidden;
@@ -19,7 +19,7 @@
 
         header {
             position: fixed;
-            top: 40%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -66,7 +66,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             padding: 50px;
-            margin-top: 35vh;
+            margin-top: 25vh;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1.5s ease, transform 1.5s ease;
@@ -89,7 +89,7 @@
         }
 
         .spacer {
-            height: 100vh;
+            height: 90vh;
         }
     </style>
     <script>
@@ -99,19 +99,19 @@
             const columns = document.querySelector('.columns');
             const scrollY = window.scrollY;
 
-            // Make "EMILY XING" move to near the top and fade out subtitle
-            if (scrollY > 150) {
-                header.style.top = '15%';
+            // Make "EMILY XING" move higher and fade out subtitle
+            if (scrollY > 100) {
+                header.style.top = '10%';
                 header.style.transform = 'translate(-50%, 0)';
                 subheading.style.opacity = '0';
             } else {
-                header.style.top = '40%';
+                header.style.top = '50%';
                 header.style.transform = 'translate(-50%, -50%)';
                 subheading.style.opacity = '1';
             }
 
-            // Fade in columns once "EMILY XING" is near the top
-            if (scrollY > window.innerHeight / 1.5) {
+            // Fade in columns once "EMILY XING" is at the top
+            if (scrollY > window.innerHeight / 2) {
                 columns.classList.add('visible');
             }
         });
