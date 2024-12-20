@@ -10,18 +10,18 @@
             font-family: 'DejaVu Sans Mono', monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #3a0ca3, #4cc9f0);
+            background: linear-gradient(to bottom, #3a0ca3, #6a0dad, #ff69b4, #ff4500, #ffa500);
             color: #ffffff;
-            transition: background 2s ease;
+            transition: background 4s ease;
             overflow-x: hidden;
             min-height: 200vh;
         }
 
         header {
             position: fixed;
-            top: 50%;
+            top: 10%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 0);
             text-align: center;
             transition: transform 0.5s ease, top 0.5s ease;
         }
@@ -38,7 +38,7 @@
             border-right: 2px solid #ffffff;
             white-space: nowrap;
             overflow: hidden;
-            width: 100%;
+            width: 50ch;
             animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
         }
 
@@ -60,26 +60,6 @@
             }
         }
 
-        .scrolled header {
-            top: 10%;
-            transform: translateX(-50%);
-        }
-
-        .scrolled header.fixed {
-            position: fixed;
-            top: 0;
-            transform: translateX(-50%);
-        }
-
-        .scrolled h1 {
-            font-size: 1.5em;
-        }
-
-        .scrolled .subheading {
-            opacity: 0;
-            visibility: hidden;
-        }
-
         .columns {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -87,7 +67,7 @@
             padding: 50px;
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
+            transition: opacity 1.5s ease, transform 1.5s ease;
         }
 
         .columns.visible {
@@ -115,35 +95,21 @@
     </style>
     <script>
         window.addEventListener('scroll', () => {
-            const body = document.body;
-            const scrollY = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const percentage = scrollY / maxScroll;
-
-            // Adjust gradient from blue to sunset as you scroll
-            const hueStart = 220; // Blue start
-            const hueEnd = 10;    // Sunset red
-            const lightnessStart = 50;
-            const lightnessEnd = 30;
-
-            const hue = hueStart + (hueEnd - hueStart) * percentage;
-            const lightness = lightnessStart + (lightnessEnd - lightnessStart) * percentage;
-
-            body.style.background = `linear-gradient(to bottom, hsl(${hue}, 80%, ${lightness}%), hsl(${hue + 40}, 80%, ${lightness}%))`;
-
-            // Adjust header position and size on scroll
             const header = document.querySelector('header');
+            const columns = document.querySelector('.columns');
+            const scrollY = window.scrollY;
+
+            // Make "EMILY XING" stay at the top
             if (scrollY > 50) {
-                header.classList.add('scrolled');
-                header.classList.add('fixed');
+                header.style.top = '0';
+                header.style.transform = 'translate(-50%, 0)';
             } else {
-                header.classList.remove('scrolled');
-                header.classList.remove('fixed');
+                header.style.top = '10%';
+                header.style.transform = 'translate(-50%, 0)';
             }
 
-            // Reveal columns on scroll
-            const columns = document.querySelector('.columns');
-            if (scrollY > window.innerHeight) {
+            // Fade in columns once "EMILY XING" reaches the top
+            if (scrollY > window.innerHeight / 2) {
                 columns.classList.add('visible');
             }
         });
@@ -152,7 +118,7 @@
 <body>
     <header>
         <h1>emily xing</h1>
-        <div class="subheading">impact @ the intersection of science, society & storytelling</div>
+        <div class="subheading">exploring science, society & stories</div>
     </header>
 
     <div class="spacer"></div>
