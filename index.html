@@ -14,7 +14,7 @@
             color: #ffffff;
             transition: background 4s ease;
             overflow-x: hidden;
-            min-height: 200vh;
+            min-height: 100vh;
         }
 
         header {
@@ -24,6 +24,7 @@
             transform: translate(-50%, -50%);
             text-align: center;
             transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+            z-index: 2;
         }
 
         h1 {
@@ -61,45 +62,49 @@
             }
         }
 
-        .columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .content {
             padding: 50px;
-            margin-top: 25vh;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1.5s ease, transform 1.5s ease;
-        }
-
-        .columns.visible {
+            margin-top: 100vh;
             opacity: 1;
             transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .content.fade-out {
+            opacity: 0;
+            transform: translateY(50px);
         }
 
         .column {
             color: white;
-            text-align: center;
+            text-align: left;
             padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(28, 37, 65, 0.8);
+            border-radius: 10px;
         }
 
         .column h2 {
             margin: 0 0 10px;
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
 
-        .spacer {
-            height: 90vh;
+        footer {
+            background: #3a506b;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            margin-top: 50px;
         }
     </style>
     <script>
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const subheading = document.querySelector('.subheading');
-            const columns = document.querySelector('.columns');
+            const content = document.querySelector('.content');
             const scrollY = window.scrollY;
 
-            // Make "EMILY XING" move higher and fade out subtitle
+            // Adjust header and subtitle behavior
             if (scrollY > 100) {
                 header.style.top = '10%';
                 header.style.transform = 'translate(-50%, 0)';
@@ -110,9 +115,11 @@
                 subheading.style.opacity = '1';
             }
 
-            // Fade in columns once "EMILY XING" is at the top
-            if (scrollY > window.innerHeight / 2) {
-                columns.classList.add('visible');
+            // Fade out content before it overlaps with "emily xing"
+            if (scrollY > 200) {
+                content.classList.add('fade-out');
+            } else {
+                content.classList.remove('fade-out');
             }
         });
     </script>
@@ -123,46 +130,47 @@
         <div class="subheading">impact through science, society & stories 🌎</div>
     </header>
 
-    <div class="spacer"></div>
-
-    <div class="columns">
+    <div class="content">
         <div class="column">
             <h2>hi! i'm emily.</h2>
-            <p>i'm an undergrad @ Harvard studying data science. </p>
+            <p>i'm an undergrad @ Harvard studying data science.</p>
         </div>
         <div class="column">
-    <h2>research</h2>
-    <p>questions i’m currently pursuing:</p>
-    <ul>
-        <li>do recent design changes on big social media improve user digital well-being? 
-            <strong>
-                <a href="https://hsph.harvard.edu/research/viswanath-lab/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Viswanath Lab</a>
-            </strong> 
-            @ Harvard T.H. Chan School of Public Health
-        </li>
-        <li>how do we close current tobacco policy gaps in media, packaging, and enforcement? 
-            <strong>
-                <a href="https://publichealth.jhu.edu/institute-for-global-tobacco-control" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Institute for Global Tobacco Control</a>
-            </strong> 
-            @ Johns Hopkins Bloomberg School of Public Health
-        </li>
-        <li>how do we build the best renewable energy deployment models for an equitable energy transition? 
-            <strong>
-                <a href="https://seas.harvard.edu/news/2024/10/climate-research-goes-national" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Harvard-China Project</a>
-            </strong>, 
-            Tsinghua School of Environment
-        </li>
-    </ul>
-</div>
-
+            <h2>research</h2>
+            <p>questions i’m currently pursuing:</p>
+            <ul>
+                <li>do recent design changes on big social media improve user digital well-being? 
+                    <strong>
+                        <a href="https://hsph.harvard.edu/research/viswanath-lab/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Viswanath Lab</a>
+                    </strong> 
+                    @ Harvard T.H. Chan School of Public Health
+                </li>
+                <li>how do we close current tobacco policy gaps in media, packaging, and enforcement? 
+                    <strong>
+                        <a href="https://publichealth.jhu.edu/institute-for-global-tobacco-control" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Institute for Global Tobacco Control</a>
+                    </strong> 
+                    @ Johns Hopkins Bloomberg School of Public Health
+                </li>
+                <li>how do we build the best renewable energy deployment models for an equitable energy transition? 
+                    <strong>
+                        <a href="https://seas.harvard.edu/news/2024/10/climate-research-goes-national" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='#007BFF';" onmouseout="this.style.color='inherit';">Harvard-China Project</a>
+                    </strong>, 
+                    Tsinghua School of Environment
+                </li>
+            </ul>
+        </div>
         <div class="column">
             <h2>writing</h2>
-            <p> </p>
+            <p>explorations in data-driven storytelling.</p>
         </div>
         <div class="column">
             <h2>art + other musings</h2>
-            <p> </p>
+            <p>creative pursuits and reflections.</p>
         </div>
     </div>
+
+    <footer>
+        © 2024 emily xing. all rights reserved.
+    </footer>
 </body>
 </html>
