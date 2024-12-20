@@ -119,11 +119,11 @@
 
     <div class="content">
         <div class="column" id="section1">
-            <h2>hi! i'm emily.</h2>
-            <p>i'm an undergrad @ Harvard studying data science.</p>
+            <h2>hi! i'm emily. 👋</h2>
+            <p>i’m an undergrad @ Harvard studying math + data science; researcher fascinated by our built societies & environment; reshaper of words & art into stories; chronic music-looper, hobbyist anti-chess player, and matcha enthusiast </p>
         </div>
         <div class="column" id="section2">
-            <h2>research</h2>
+            <h2>research 🌱</h2>
             <p>questions i’m currently pursuing:</p>
             <ul>
                 <li>do recent design changes on big social media improve user digital well-being? 
@@ -147,11 +147,11 @@
             </ul>
         </div>
         <div class="column" id="section3">
-            <h2>writing</h2>
+            <h2>writing 📝</h2>
             <p>explorations in data-driven storytelling.</p>
         </div>
         <div class="column" id="section4">
-            <h2>art + other musings</h2>
+            <h2>art + other musings 🎨</h2>
             <p>creative pursuits and reflections.</p>
         </div>
     </div>
@@ -180,13 +180,11 @@
                 header.style.transform = 'translate(-50%, -50%)';
             }
 
-            // Fade out subtitle and ensure it stays hidden
+            // Fade out subtitle but allow it to reappear
             if (scrollY > fadeStart) {
                 subtitle.style.opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
-                if (scrollY >= fadeEnd) {
-                    subtitle.style.opacity = 0;
-                    subtitle.style.display = 'none'; // Ensure it doesn't come back
-                }
+            } else {
+                subtitle.style.opacity = 1;
             }
 
             // Animate sections
