@@ -10,7 +10,7 @@
             font-family: 'DejaVu Sans Mono', monospace;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #3a0ca3 30%, #6a0dad 20%, #ff69b4 15%, #ff4500 15%, #ffa500 20%);
+            background: linear-gradient(to bottom, #3a0ca3 40%, #6a0dad 20%, #ff69b4 20%, #ff4500 10%, #ffa500 10%);
             color: #ffffff;
             transition: background 4s ease;
             overflow-x: hidden;
@@ -19,9 +19,9 @@
 
         header {
             position: fixed;
-            top: 20%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, 0);
+            transform: translate(-50%, -50%);
             text-align: center;
             transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
         }
@@ -66,7 +66,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             padding: 50px;
-            margin-top: 30vh;
+            margin-top: 50vh;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1.5s ease, transform 1.5s ease;
@@ -89,7 +89,7 @@
         }
 
         .spacer {
-            height: 120vh;
+            height: 140vh;
         }
     </style>
     <script>
@@ -100,18 +100,18 @@
             const scrollY = window.scrollY;
 
             // Make "EMILY XING" move to near the top and fade out subtitle
-            if (scrollY > 100) {
-                header.style.top = '10%';
+            if (scrollY > 150) {
+                header.style.top = '15%';
                 header.style.transform = 'translate(-50%, 0)';
                 subheading.style.opacity = '0';
             } else {
-                header.style.top = '20%';
-                header.style.transform = 'translate(-50%, 0)';
+                header.style.top = '50%';
+                header.style.transform = 'translate(-50%, -50%)';
                 subheading.style.opacity = '1';
             }
 
             // Fade in columns once "EMILY XING" is near the top
-            if (scrollY > window.innerHeight / 2) {
+            if (scrollY > window.innerHeight / 1.5) {
                 columns.classList.add('visible');
             }
         });
@@ -119,8 +119,8 @@
 </head>
 <body>
     <header>
-        <h1>emily xing</h1>
-        <div class="subheading">exploring science, society & stories</div>
+        <h1>EMILY XING</h1>
+        <div class="subheading">Impact @ the intersections of science, tech & stories</div>
     </header>
 
     <div class="spacer"></div>
