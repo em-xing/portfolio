@@ -5,28 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            text-align: center;
+            top: 0;
+            background-color: #1e1e1e;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            color: #1c448a;
+            font-size: 6em;
+            margin: 0;
+            transition: font-size 0.3s ease;
+        }
+
+        header.scrolled h1 {
+            font-size: 2em;
+        }
+
+        .subheading {
+            color: #cfcfcf;
+            font-size: 1.5em;
+            margin-top: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        header.scrolled .subheading {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>EMILY XING</h1>
+        <div class="subheading">Impact @ the intersections of science, tech & stories</div>
     </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>This is a brief introduction about myself.</p>
-        </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p>Here are some of my projects.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 My Portfolio</p>
-    </footer>
-    <script src="scripts/main.js"></script>
+
+    <div class="content">
+        <p>Scroll down to see the header transform.</p>
+    </div>
+
+    <div style="height: 200vh;"></div>
 </body>
 </html>
