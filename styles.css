@@ -35,8 +35,8 @@ h1 {
     border-right: 2px solid #f1f1f1;
     white-space: nowrap;
     overflow: hidden;
-    width: 20ch;
-    animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
+    width: 40ch; /* Adjusted for full text */
+    animation: typing 3s steps(40, end), blink 0.5s step-end infinite;
 }
 
 @keyframes typing {
@@ -44,18 +44,10 @@ h1 {
         width: 0;
     }
     to {
-        width: 20ch;
+        width: 40ch;
     }
 }
 
-@keyframes blink {
-    from {
-        border-color: transparent;
-    }
-    to {
-        border-color: #f1f1f1;
-    }
-}
 
 .content {
     text-align: center;
