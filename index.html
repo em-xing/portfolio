@@ -165,8 +165,10 @@
             const header = document.querySelector('header');
             const subtitle = document.querySelector('.subheading');
             const sections = document.querySelectorAll('.column');
-            const fadeStart = 600; // Starting point for fade
-            const fadeEnd = 800;   // Ending point for fade
+            const fadeStartSubtitle = 0; // Subtitle fades immediately
+            const fadeEndSubtitle = 100; // Fully faded at scrollY = 100
+            const fadeStartSections = 700; // Sections start fading at 700
+            const fadeEndSections = 1000; // Sections fully fade out at 1000
             const delayFactor = 150; // Delay between each section's animation
 
             const scrollY = window.scrollY;
@@ -180,18 +182,14 @@
                 header.style.transform = 'translate(-50%, -50%)';
             }
 
-            // Fade out subtitle but allow it to reappear
-            if (scrollY > fadeStart) {
-                subtitle.style.opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
-            } else {
-                subtitle.style.opacity = 1;
-            }
+            // Fade out subtitle
+            subtitle.style.opacity = Math.max(0, 1 - (scrollY - fadeStartSubtitle) / (fadeEndSubtitle - fadeStartSubtitle));
 
             // Animate sections
             sections.forEach((section, index) => {
                 const delayOffset = index * delayFactor; // Add delay for each section
-                const start = fadeStart + delayOffset;
-                const end = fadeEnd + delayOffset;
+                const start = fadeStartSections + delayOffset;
+                const end = fadeEndSections + delayOffset;
 
                 if (scrollY > start && scrollY < end) {
                     const opacity = 1 - (scrollY - start) / (end - start);
