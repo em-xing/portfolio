@@ -19,11 +19,11 @@
 
         header {
             position: fixed;
-            top: 10%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, 0);
+            transform: translate(-50%, -50%);
             text-align: center;
-            transition: transform 0.5s ease, top 0.5s ease;
+            transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
         }
 
         h1 {
@@ -40,6 +40,7 @@
             overflow: hidden;
             width: 50ch;
             animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+            transition: opacity 0.5s ease;
         }
 
         @keyframes typing {
@@ -76,12 +77,9 @@
         }
 
         .column {
-            background: linear-gradient(to bottom, rgba(58, 12, 163, 0.8), rgba(76, 201, 240, 0.8));
             color: white;
-            padding: 20px;
-            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
         .column h2 {
@@ -96,19 +94,22 @@
     <script>
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const subheading = document.querySelector('.subheading');
             const columns = document.querySelector('.columns');
             const scrollY = window.scrollY;
 
-            // Make "EMILY XING" stay at the top
-            if (scrollY > 50) {
-                header.style.top = '0';
+            // Make "EMILY XING" move to near the top and fade out subtitle
+            if (scrollY > 100) {
+                header.style.top = '15%';
                 header.style.transform = 'translate(-50%, 0)';
+                subheading.style.opacity = '0';
             } else {
-                header.style.top = '10%';
-                header.style.transform = 'translate(-50%, 0)';
+                header.style.top = '50%';
+                header.style.transform = 'translate(-50%, -50%)';
+                subheading.style.opacity = '1';
             }
 
-            // Fade in columns once "EMILY XING" reaches the top
+            // Fade in columns once "EMILY XING" is near the top
             if (scrollY > window.innerHeight / 2) {
                 columns.classList.add('visible');
             }
@@ -117,8 +118,8 @@
 </head>
 <body>
     <header>
-        <h1>emily xing</h1>
-        <div class="subheading">exploring science, society & stories</div>
+        <h1>EMILY XING</h1>
+        <div class="subheading">Impact @ the intersections of science, tech & stories</div>
     </header>
 
     <div class="spacer"></div>
