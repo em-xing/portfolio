@@ -150,10 +150,17 @@
     <script>
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('.column');
-            const fadeStart = 400; // Starting point for fade
-            const fadeEnd = 600;   // Ending point for fade
+            const fadeStart = 600; // Starting point for fade
+            const fadeEnd = 800;   // Ending point for fade
             const delayFactor = 150; // Delay between each section's animation
-
+                       // Adjust header position
+            if (scrollY > 100) {
+                header.style.top = '10%';
+                header.style.transform = 'translate(-50%, 0)';
+            } else {
+                header.style.top = '50%';
+                header.style.transform = 'translate(-50%, -50%)';
+            }
             sections.forEach((section, index) => {
                 const scrollY = window.scrollY;
                 const delayOffset = index * delayFactor; // Add delay for each section
