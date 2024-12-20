@@ -15,6 +15,30 @@
             transition: background 4s ease;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="1" fill="white"/><circle cx="20" cy="30" r="0.8" fill="white"/><circle cx="70" cy="80" r="1.2" fill="white"/><circle cx="90" cy="40" r="0.5" fill="white"/></svg>');
+            background-size: 300px 300px;
+            animation: sparkle 5s linear infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        @keyframes sparkle {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(-100px, -100px);
+            }
         }
 
         header {
@@ -41,6 +65,8 @@
             overflow: hidden;
             width: 50ch;
             animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+            opacity: 1;
+            transition: opacity 0.5s ease;
         }
 
         @keyframes typing {
@@ -59,6 +85,16 @@
             to {
                 border-color: #ffffff;
             }
+        }
+
+        a {
+            text-decoration: underline;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: purple;
         }
 
         .content {
@@ -150,9 +186,10 @@
     <script>
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const subtitle = document.querySelector('.subheading');
             const sections = document.querySelectorAll('.column');
-            const fadeStart = 400; // Starting point for fade
-            const fadeEnd = 600;   // Ending point for fade
+            const fadeStart = 600; // Starting point for fade
+            const fadeEnd = 800;   // Ending point for fade
             const delayFactor = 150; // Delay between each section's animation
 
             const scrollY = window.scrollY;
@@ -164,6 +201,14 @@
             } else {
                 header.style.top = '50%';
                 header.style.transform = 'translate(-50%, -50%)';
+            }
+
+            // Fade out subtitle and ensure it stays hidden
+            if (scrollY > fadeStart) {
+                subtitle.style.opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
+                if (scrollY >= fadeEnd) {
+                    subtitle.style.opacity = 0;
+                }
             }
 
             // Animate sections
