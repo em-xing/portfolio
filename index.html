@@ -23,7 +23,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, top 0.5s ease;
             z-index: 2;
         }
 
@@ -41,7 +41,6 @@
             overflow: hidden;
             width: 50ch;
             animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
-            transition: opacity 0.5s ease;
         }
 
         @keyframes typing {
@@ -64,15 +63,7 @@
 
         .content {
             padding: 50px;
-            margin-top: 100vh;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .content.fade-out {
-            opacity: 0;
-            transform: translateY(50px);
+            margin-top: 120vh; /* Push the content below the header */
         }
 
         .column {
@@ -100,26 +91,15 @@
     <script>
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            const subheading = document.querySelector('.subheading');
-            const content = document.querySelector('.content');
             const scrollY = window.scrollY;
 
-            // Adjust header and subtitle behavior
+            // Adjust header position and ensure no overlap
             if (scrollY > 100) {
                 header.style.top = '10%';
                 header.style.transform = 'translate(-50%, 0)';
-                subheading.style.opacity = '0';
             } else {
                 header.style.top = '50%';
                 header.style.transform = 'translate(-50%, -50%)';
-                subheading.style.opacity = '1';
-            }
-
-            // Fade out content before it overlaps with "emily xing"
-            if (scrollY > 200) {
-                content.classList.add('fade-out');
-            } else {
-                content.classList.remove('fade-out');
             }
         });
     </script>
