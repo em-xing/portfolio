@@ -14,6 +14,7 @@
             color: #ffffff;
             transition: background 2s ease;
             overflow-x: hidden;
+            min-height: 200vh;
         }
 
         header {
@@ -80,7 +81,7 @@
             padding: 50px;
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transition: opacity 1s ease, transform 1s ease;
         }
 
         .columns.visible {
@@ -100,6 +101,10 @@
         .column h2 {
             margin: 0 0 10px;
             font-size: 1.2em;
+        }
+
+        .spacer {
+            height: 100vh;
         }
     </style>
     <script>
@@ -130,7 +135,7 @@
 
             // Reveal columns on scroll
             const columns = document.querySelector('.columns');
-            if (scrollY > window.innerHeight / 2) {
+            if (scrollY > window.innerHeight) {
                 columns.classList.add('visible');
             }
         });
@@ -141,6 +146,8 @@
         <h1>EMILY XING</h1>
         <div class="subheading">Impact @ the intersections of science, tech & stories</div>
     </header>
+
+    <div class="spacer"></div>
 
     <div class="columns">
         <div class="column">
@@ -166,3 +173,4 @@
     </div>
 </body>
 </html>
+
