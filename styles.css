@@ -175,6 +175,24 @@ footer {
     position: relative;
 }
 
+/* General styles for grid items */
+.grid-item {
+    text-align: center;
+    font-family: 'DejaVu Sans Mono', monospace;
+    color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    margin-top: 20px; /* Add spacing between the image and text */
+}
+
+/* Image wrapper ensures consistent dimensions */
+.image-wrapper {
+    width: 100%;
+    height: 150px; /* Set uniform height */
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
 /* Base styles for all grid images */
 .grid-image {
     width: 100%;
@@ -184,9 +202,12 @@ footer {
 }
 
 /* Specific styles for MDandMe and New York Times */
-.grid-item[data-title="MDandMe"] .grid-image,
+.grid-item[data-title="MDandMe"] .grid-image {
+    object-position: top; /* Move MDandMe image to the top of the frame */
+}
+
 .grid-item[data-title="New York Times"] .grid-image {
-    object-position: top; /* Move the image to the top of the frame */
+    object-position: bottom; /* Move New York Times image lower */
 }
 
 /* Specific styles for HUUSL */
@@ -204,3 +225,9 @@ footer {
     transform: scale(1.2); /* Larger zoom effect for HUUSL on hover */
 }
 
+/* Add spacing between images and text descriptions */
+.grid-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 15px; /* Increased spacing */
+}
