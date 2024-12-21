@@ -19,18 +19,18 @@
             position: relative;
         }
 
-        /* Top bar styling */
+       /* Top bar styling */
 .top-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    padding: 10px 40px; /* Increase padding for more spacing */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px; /* Increased height for better alignment */
+    height: 80px;
     z-index: 100;
 }
 
@@ -38,23 +38,23 @@
     margin: 0;
     font-size: 2rem; /* Increased font size */
     position: relative;
-    top: 1px; /* Adjusted vertically to center */
-    text-align: center; /* Align text centrally */
-    
+    left: 40px; /* Adjust horizontal position */
+    top: 5px; /* Adjust vertical position */
 }
 
 .home-link {
-    position: relative;
-    top: 1px; /* Adjusted vertically to center */
-    text-align: center; /* Align text centrally */
+    position: absolute; /* Position the home link precisely */
+    top: 20px; /* Adjust vertical position */
+    right: 40px; /* Adjust this value to move further right */
+    text-align: center;
 }
 
 .home-link a {
     color: #5bc0be;
     text-decoration: none;
-    font-size: 1.2rem; /* Adjusted for visibility */
+    font-size: 1.2rem;
     border: 2px solid #5bc0be;
-    padding: 10px 80px; /* Adjusted padding for better balance */
+    padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -69,7 +69,7 @@
         .masonry-container {
             column-count: 3; /* Number of masonry columns */
             column-gap: 15px; /* Gap between columns */
-            padding: 80px 20px 20px; /* Add top padding for the bar */
+            padding: 100px 20px 20px; /* Add top padding for the bar */
         }
 
         .masonry-item {
@@ -131,6 +131,16 @@
             outline: none;
         }
 
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .masonry-container {
@@ -138,7 +148,7 @@
             }
 
             .top-bar h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
 
@@ -148,7 +158,7 @@
             }
 
             .top-bar h1 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -158,7 +168,7 @@
     <div class="top-bar">
         <h1>artwork</h1>
         <div class="home-link">
-            <a href="index.html">main</a>
+            <a href="index.html">home</a>
         </div>
     </div>
 
@@ -232,6 +242,11 @@
         <img id="lightbox-image" src="" alt="Expanded Image">
     </div>
 
+    <!-- Footer -->
+    <footer>
+        © 2024 emily xing. all rights reserved.
+    </footer>
+
     <script>
         // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
@@ -260,4 +275,3 @@
     </script>
 </body>
 </html>
-
