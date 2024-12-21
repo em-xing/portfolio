@@ -4,6 +4,7 @@ window.addEventListener('scroll', () => {
     const profileImage = document.querySelector('.profile-image');
     const subheading = document.querySelector('.subheading');
     const emilyXing = document.querySelector('header h1');
+    const topBar = document.querySelector('.top-bar');
 
     const scrollY = window.scrollY;
 
@@ -29,12 +30,12 @@ window.addEventListener('scroll', () => {
         subheading.style.opacity = '1';
     }
 
-    // Make 'emily xing' smaller and move to the right corner on scroll
+    // Make 'emily xing' smaller and move further to the top-right corner on scroll
     if (scrollY > 100) {
-        emilyXing.style.fontSize = '1.5em';
+        emilyXing.style.fontSize = '1.2em';
         emilyXing.style.position = 'fixed';
-        emilyXing.style.top = '10px';
-        emilyXing.style.right = '10px';
+        emilyXing.style.top = '5px';
+        emilyXing.style.right = '20px';
         emilyXing.style.left = 'auto';
         emilyXing.style.transform = 'none';
         emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
@@ -46,6 +47,16 @@ window.addEventListener('scroll', () => {
         emilyXing.style.left = '50%';
         emilyXing.style.transform = 'translate(-50%, -50%)';
         emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
+    }
+
+    // Show top bar on scroll
+    if (scrollY > 100) {
+        topBar.style.top = '0';
+        topBar.style.opacity = '1';
+        topBar.style.transition = 'top 0.5s ease, opacity 0.5s ease';
+    } else {
+        topBar.style.top = '-50px';
+        topBar.style.opacity = '0';
     }
 
     // Staggered fade in and fade out for sections
