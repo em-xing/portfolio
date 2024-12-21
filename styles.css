@@ -1,1 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono');
+
+body {
+    font-family: 'DejaVu Sans Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
+    color: #ffffff;
+    transition: background 4s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+header {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 3em;
+    margin: 0;
+    transition: font-size 0.5s ease;
+}
+
+.subheading {
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 1.5em;
+    margin-top: 10px;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50ch;
+    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50ch;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: #ffffff;
+    }
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: purple;
+}
+
+.profile-image {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
+    background-size: cover;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.content {
+    padding: 50px;
+    margin-top: 120vh;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.column {
+    font-family: 'DejaVu Sans Mono', monospace;
+    color: white;
+    text-align: left;
+    margin-bottom: 50px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.column h2 {
+    font-family: 'DejaVu Sans Mono', monospace;
+    margin: 0 0 20px;
+    font-size: 2em;
+}
+
+.column p, .column ul {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+footer {
+    background: #3a506b;
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    margin-top: 50px;
+}
 
