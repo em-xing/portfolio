@@ -236,8 +236,8 @@
             // Animate sections
             sections.forEach((section, index) => {
                 const delayOffset = index * delayFactor; // Add delay for each section
-                const start = fadeStartSections;
-                const end = fadeEndSections;
+                const start = fadeStartSections+delayOffset;
+                const end = fadeEndSections+delayOffset;
 
                 if (scrollY > start && scrollY < end) {
                     const opacity = 1 - (scrollY - start) / (end - start);
