@@ -1,8 +1,8 @@
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
-    const subheading = document.querySelector('.subheading');
-    const profileImage = document.querySelector('.profile-image');
     const sections = document.querySelectorAll('.column');
+    const profileImage = document.querySelector('.profile-image');
+    const subheading = document.querySelector('.subheading');
 
     const scrollY = window.scrollY;
 
@@ -10,60 +10,36 @@ window.addEventListener('scroll', () => {
     if (scrollY > 100) {
         header.style.top = '10%';
         header.style.transform = 'translate(-50%, 0)';
-        header.style.opacity = '1';
-        header.style.transition = 'top 0.5s ease, transform 0.5s ease, opacity 0.5s ease';
+        header.style.opacity = '0.8';
     } else {
         header.style.top = '50%';
         header.style.transform = 'translate(-50%, -50%)';
         header.style.opacity = '1';
     }
 
-    // Fade out profile image and subheading
+    // Hide profile image and subheading on scroll
     if (scrollY > 100) {
         profileImage.style.opacity = '0';
-        profileImage.style.transition = 'opacity 0.5s ease';
         subheading.style.opacity = '0';
         subheading.style.transition = 'opacity 0.5s ease';
+        profileImage.style.transition = 'opacity 0.5s ease';
     } else {
         profileImage.style.opacity = '1';
         subheading.style.opacity = '1';
     }
 
-    // Cool animations between sections
+    // Staggered fade in and fade out for sections
     sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionBottom = section.getBoundingClientRect().bottom;
         const windowHeight = window.innerHeight;
 
-        if (rect.top >= 0 && rect.bottom <= windowHeight) {
-            // Section is fully in view
-            section.style.transform = 'scale(1.1)';
-            section.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
-            section.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+        if (sectionTop < windowHeight && sectionBottom > 0) {
+            section.style.opacity = '1';
+            section.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         } else {
-            // Section is out of view
-            section.style.transform = 'scale(1)';
-            section.style.boxShadow = 'none';
+            section.style.opacity = '0';
+            section.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         }
-
-        // Add staggered fade-in effect for lines in the section
-        const lines = section.querySelectorAll('p');
-        lines.forEach((line, lineIndex) => {
-            const lineTop = line.getBoundingClientRect().top + window.scrollY;
-            const start = lineTop - 790;
-            const end = start + 200;
-
-            if (scrollY >= start && scrollY <= end) {
-                const progress = (scrollY - start) / (end - start);
-                line.style.opacity = 0.5 + progress * 0.5;
-                line.style.transform = `translateY(${10 - progress * 10}px)`;
-                line.style.transition = `opacity 0.3s ease ${lineIndex * 0.1}s, transform 0.3s ease ${lineIndex * 0.1}s`;
-            } else if (scrollY < start) {
-                line.style.opacity = '0.5';
-                line.style.transform = 'translateY(10px)';
-            } else {
-                line.style.opacity = '1';
-                line.style.transform = 'translateY(0)';
-            }
-        });
     });
 });
