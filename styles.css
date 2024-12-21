@@ -207,7 +207,10 @@ footer {
 }
 
 .grid-item[data-title="MDandMe"] .grid-image {
-    object-position: 45% center; /* Slightly higher than centered */
+    object-position: 35% center; /* Slightly higher than centered */
+}
+.grid-item[data-title="Visual Art"] .grid-image {
+    object-position: top; /* Align the Portfolio image at the top */
 }
 
 
