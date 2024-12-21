@@ -182,6 +182,9 @@ footer {
 .grid-item[data-title="New York Times"] .grid-image {
     object-position: 10% top; /* Move New York Times image slightly higher */
 }
+.grid-item[data-title="MDandMe"] .grid-image {
+    object-position: 80% top; /* Move New York Times image slightly higher */
+}
 
 /* Specific styles for HUUSL */
 .grid-item[data-title="HUUSL"] .grid-image {
