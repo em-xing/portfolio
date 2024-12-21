@@ -45,41 +45,35 @@
             color: #15265e;
         }
 
-        /* Masonry grid layout */
+        /* Pinterest-style grid */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible column widths */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible columns */
             grid-auto-rows: 10px; /* Base row height */
-            gap: 20px; /* Consistent spacing between items */
+            gap: 20px; /* Spacing between items */
             padding: 20px;
         }
 
         .grid-item {
-            display: block;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .grid-item img {
             width: 100%;
-            height: auto; /* Maintain aspect ratio */
+            height: auto;
             display: block;
-            border-radius: 5px; /* Optional: Rounded corners for images */
         }
 
-        /* Automatically adjust the item size to fit the image */
+        /* Adjust grid row span dynamically */
         .grid-item {
-            grid-row-end: span calc((var(--image-height) / 10) + 1);
+            grid-row-end: span calc(var(--image-height) / 10);
         }
 
-        /* Hover effect for images */
-        .grid-item:hover img {
-            filter: brightness(1.2); /* Slightly lighter on hover */
-        }
-
-        /* Responsive Design */
+        /* Responsive design */
         @media (max-width: 768px) {
             .grid-container {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -99,68 +93,66 @@
         <a href="index.html">home</a>
     </div>
     <div class="grid-container">
-         <!-- Add images here -->
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 400;">
             <img src="images/art portfolio images/A Field of Wishes.jpg" alt="A Field of Wishes">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 250;">
             <img src="images/art portfolio images/An Old Neighborhood.jpg" alt="An Old Neighborhood">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 350;">
             <img src="images/art portfolio images/Astronomy Dreams.jpg" alt="Astronomy Dreams">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/Blossom.jpg" alt="Blossom">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 200;">
             <img src="images/art portfolio images/Cables, Casettes.jpg" alt="Cables, Casettes">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 400;">
             <img src="images/art portfolio images/Feathers, Fly Freely!.png" alt="Feathers, Fly Freely!">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 250;">
             <img src="images/art portfolio images/Let's Explore, Tonight, Together.png" alt="Let's Explore, Tonight, Together">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/Midwinter.png" alt="Midwinter">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 200;">
             <img src="images/art portfolio images/Morning Reads.png" alt="Morning Reads">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 400;">
             <img src="images/art portfolio images/Mother.jpg" alt="Mother">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 250;">
             <img src="images/art portfolio images/My Grandpa, the Engineer.png" alt="My Grandpa, the Engineer">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/My Guardian Reef.png" alt="My Guardian Reef">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 200;">
             <img src="images/art portfolio images/My Mom's Childhood.jpg" alt="My Mom's Childhood">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 400;">
             <img src="images/art portfolio images/One Thousand Paper Cranes.png" alt="One Thousand Paper Cranes">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/Partners in Crime.png" alt="Partners in Crime">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 200;">
             <img src="images/art portfolio images/Spring, I Love You.png" alt="Spring, I Love You">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 350;">
             <img src="images/art portfolio images/Sundays in the Kitchen.png" alt="Sundays in the Kitchen">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 300;">
             <img src="images/art portfolio images/The Bothriolepis and Me.png" alt="The Bothriolepis and Me">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="--image-height: 250;">
             <img src="images/art portfolio images/Two Flowers.png" alt="Two Flowers">
         </div>
     </div>
 </body>
 </html>
-
