@@ -8,7 +8,6 @@
     <style>
         /* Background Gradient */
 /* General body and layout styles */
-/* General body and layout styles */
 body {
     font-family: 'DejaVu Sans Mono', monospace;
     margin: 0;
@@ -48,68 +47,50 @@ h1 {
     color: #15265e;
 }
 
-.grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three columns */
-            gap: 20px;
-            padding: 20px;
-            overflow-y: scroll;
-            height: 80vh; /* Set the height for scrolling */
-        }
+/* Container for images */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center-align the content */
+    gap: 20px; /* Add space between items */
+    padding: 20px;
+}
 
-        .grid-item {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+/* Individual image items */
+.image-item {
+    width: calc(30% - 20px); /* Set dynamic width */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensure image stays rounded */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .grid-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+.image-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px; /* Rounded corners for images */
+}
 
-        .grid-item img:hover {
-            transform: scale(1.05); /* Slight zoom effect */
-        }
+/* Hover effect for images */
+.image-item:hover {
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
 
-        /* Lightbox styling */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+/* Responsive design */
+@media (max-width: 768px) {
+    .image-item {
+        width: calc(45% - 20px); /* Two images per row on smaller screens */
+    }
+}
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid-container {
-                grid-template-columns: 1fr; /* One column for very small screens */
-            }
-        }
+@media (max-width: 480px) {
+    .image-item {
+        width: calc(100% - 20px); /* One image per row on very small screens */
+    }
+}
 
 
         /* Lightbox styling */
