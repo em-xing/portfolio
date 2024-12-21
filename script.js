@@ -3,6 +3,7 @@ window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('.column');
     const profileImage = document.querySelector('.profile-image');
     const subheading = document.querySelector('.subheading');
+    const emilyXing = document.querySelector('header h1');
 
     const scrollY = window.scrollY;
 
@@ -26,6 +27,25 @@ window.addEventListener('scroll', () => {
     } else {
         profileImage.style.opacity = '1';
         subheading.style.opacity = '1';
+    }
+
+    // Make 'emily xing' smaller and move to the right corner on scroll
+    if (scrollY > 100) {
+        emilyXing.style.fontSize = '1.5em';
+        emilyXing.style.position = 'fixed';
+        emilyXing.style.top = '10px';
+        emilyXing.style.right = '10px';
+        emilyXing.style.left = 'auto';
+        emilyXing.style.transform = 'none';
+        emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
+    } else {
+        emilyXing.style.fontSize = '3em';
+        emilyXing.style.position = 'relative';
+        emilyXing.style.top = 'unset';
+        emilyXing.style.right = 'unset';
+        emilyXing.style.left = '50%';
+        emilyXing.style.transform = 'translate(-50%, -50%)';
+        emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
     }
 
     // Staggered fade in and fade out for sections
