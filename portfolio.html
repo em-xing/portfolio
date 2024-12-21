@@ -20,6 +20,26 @@
             font-size: 2.5rem;
         }
 
+        .home-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-link a {
+            color: #5bc0be;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #5bc0be;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .home-link a:hover {
+            background-color: #5bc0be;
+            color: #15265e;
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* Three columns */
@@ -39,10 +59,36 @@
             height: auto;
             border-radius: 10px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .grid-item:hover {
-            transform: scale(1.05);
+        .grid-item img:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        /* Lightbox styling */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox.active {
+            display: flex;
         }
 
         @media (max-width: 768px) {
@@ -59,89 +105,95 @@
     </style>
 </head>
 <body>
-    <h1>Art Portfolio</h1>
+    <h1>artwork</h1>
+    <div class="home-link">
+        <a href="index.html">home</a>
+    </div>
     <div class="grid-container">
-        <!-- Add images with captions here -->
+        <!-- Add images here -->
         <div class="grid-item">
             <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
-            <p>2012 Halloween</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/A Field of Wishes.jpg" alt="A Field of Wishes">
-            <p>A Field of Wishes</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/An Old Neighborhood.jpg" alt="An Old Neighborhood">
-            <p>An Old Neighborhood</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Astronomy Dreams.jpg" alt="Astronomy Dreams">
-            <p>Astronomy Dreams</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Blossom.jpg" alt="Blossom">
-            <p>Blossom</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Cables, Casettes.jpg" alt="Cables, Casettes">
-            <p>Cables, Casettes</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Feathers, Fly Freely!.png" alt="Feathers, Fly Freely!">
-            <p>Feathers, Fly Freely!</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Let's Explore, Tonight, Together.png" alt="Let's Explore, Tonight, Together">
-            <p>Let's Explore, Tonight, Together</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Midwinter.png" alt="Midwinter">
-            <p>Midwinter</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Morning Reads.png" alt="Morning Reads">
-            <p>Morning Reads</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Mother.jpg" alt="Mother">
-            <p>Catching the Stomach Bug</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/My Grandpa, the Engineer.png" alt="My Grandpa, the Engineer">
-            <p>My Grandpa, the Engineer</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/My Guardian Reef.png" alt="My Guardian Reef">
-            <p>My Guardian Reef</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/My Mom's Childhood.jpg" alt="My Mom's Childhood">
-            <p>My Mom's Childhood</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/One Thousand Paper Cranes.png" alt="One Thousand Paper Cranes">
-            <p>One Thousand Paper Cranes</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Partners in Crime.png" alt="Partners in Crime">
-            <p>Partners in Crime</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Spring, I Love You.png" alt="Spring, I Love You">
-            <p>Spring, I Love You</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Sundays in the Kitchen.png" alt="Sundays in the Kitchen">
-            <p>Sundays in the Kitchen</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/The Bothriolepis and Me.png" alt="The Bothriolepis and Me">
-            <p>The Bothriolepis and Me</p>
         </div>
         <div class="grid-item">
             <img src="images/art portfolio images/Two Flowers.png" alt="Two Flowers">
-            <p>Two Flowers</p>
         </div>
     </div>
+
+    <!-- Lightbox for image display -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const gridItems = document.querySelectorAll('.grid-item img');
+
+        gridItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImage.src = item.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            lightboxImage.src = '';
+        });
+    </script>
 </body>
 </html>
