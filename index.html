@@ -4,197 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>emily xing - portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&family=Playfair+Display:wght@700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'DejaVu Sans Mono', monospace;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
-            color: #ffffff;
-            transition: background 4s ease;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
+@@ -29,15 +29,12 @@
         }
 
-        header {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    text-align: center;
-    z-index: 2;
-    margin: 20px 0; /* Optional for spacing */
-}
-
-
         h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3em;
+            font-weight: 700;
             margin: 0;
             transition: font-size 0.5s ease;
         }
 
         .subheading {
+            font-family: 'Raleway', sans-serif;
             font-size: 1.2em;
             margin-top: 10px;
             border-right: 2px solid #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 50ch;
-            animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 50ch;
-            }
-        }
-
-        @keyframes blink {
-            from {
-                border-color: transparent;
-            }
-            to {
-                border-color: #ffffff;
-            }
-        }
-
-        a {
-            text-decoration: underline;
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: purple;
-        }
-
-        .content {
-            padding: 50px;
-            margin-top: 120vh;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .column {
-            color: white;
-            text-align: left;
+@@ -91,14 +88,12 @@
             margin-bottom: 50px;
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 1s ease, transform 1s ease; /* Slowed down fade effect */
         }
 
         .column h2 {
+            font-family: 'Raleway', sans-serif;
             margin: 0 0 20px;
             font-size: 2em;
+            font-weight: 700;
         }
 
         .column p, .column ul {
-            margin: 0;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #3a506b;
-            text-align: center;
-            padding: 20px;
-            color: #ffffff;
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>emily xing</h1>
-        <div class="subheading">impact through science, society & stories 🌎‍✈️ </div>
-    </header>
-
-    <div class="content">
-        <div class="column" id="section1">
-            <h2>hi! i'm emily. 🌱</h2>
-            <p>i’m an undergrad @ Harvard studying math + data science 📊; researcher fascinated by our built societies & environment 🌐; reshaper of words & art into stories 📚; chronic music-looper, hobbyist anti-chess player, and matcha enthusiast 🍵</p>
-        </div>
-        <div class="column" id="section2">
-            <h2>research 🔎</h2>
-            <p style="margin-bottom: 20px;">questions i’m currently pursuing:</p>
-            <ul style="list-style: disc; padding-left: 20px;">
-                <li>
-                    are recent design changes on big social media actually improving user <strong>digital well-being</strong>?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://hsph.harvard.edu/research/viswanath-lab/" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#9370DB'" 
-                               onmouseout="this.style.color='white'">Viswanath Lab</a>
-                        </strong> @ Harvard T.H. Chan School of Public Health
-                    </span>
-                </li>
-                <li style="margin-top: 20px;">
-                    how do we close current <strong>tobacco policy gaps</strong> in media, packaging, and enforcement?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://publichealth.jhu.edu/institute-for-global-tobacco-control" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#9370DB'" 
-                               onmouseout="this.style.color='white'">Institute for Global Tobacco Control</a>
-                        </strong> @ Johns Hopkins Bloomberg School of Public Health
-                    </span>
-                </li>
-                <li style="margin-top: 20px;">
-                    how do we build the best renewable energy deployment models for an <strong>equitable energy transition</strong>?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://seas.harvard.edu/news/2024/10/climate-research-goes-national" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#9370DB'" 
-                               onmouseout="this.style.color='white'">Harvard-China Project</a>
-                        </strong>, Tsinghua School of Environment
-                    </span>
-                </li>
+@@ -167,7 +162,10 @@
             </ul>
         </div>
         <div class="column" id="section3">
-            <h2>writing 📝</h2>
-            <p style="margin-bottom: 20px;">words about things i love:</p>
-            <ul style="list-style: disc; padding-left: 20px; margin-bottom: 20px;">
-                <li style="margin-bottom: 20px;">
+          <li style="margin-bottom: 20px;">
                     MDandMe’s AI is making <strong>medical information</strong> accessible to <strong>80,000+ users</strong>. i seek to humanize <a href="https://mdme.ai/blog/2024/09/18/marias-story"><strong>their stories</strong></a>.
                 </li>
                 <li style="margin-bottom: 20px;">
-                    <a href="https://bowseat.org/news/climate-change-and-effective-altruism-a-cause-worth-fighting-for/"><strong>thinkpieces</strong></a> i wrote @ Bow Seat, the world’s largest creative environmental program for youth
-                </li>
-                <li style="margin-bottom: 20px;">
-                    my <a href="https://www.nytimes.com/2022/05/11/learning/from-addiction-to-aviation-tobacco-an-unexpected-fuel-for-the-future.html"><em>New York Times</em></a> <strong>published science writing</strong> on tobacco as green fuel
-                </li>
-                <li style="margin-top: 20px;">
-                    <a href="https://www.huusl.org/bulletin/sketches-of-a-re-imagined-mass-and-cass" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: white;" onmouseover="this.style.color='#9370DB'" onmouseout="this.style.color='white';"><strong>urban justice designs</strong></a> re-imagining the neighborhood of Mass. and Cass
-                </li>
-            </ul>
-
-            <p style="margin-bottom: 20px;">research papers:</p>
-            <ul style="list-style: disc; padding-left: 20px;">
-                <li style="margin-bottom: 20px;">
+@@ -187,18 +185,20 @@
                     Xing et al. <a href="https://www.tobaccoinduceddiseases.org/The-problematic-use-of-cultural-symbols-on-Chinese-cigarette-packs,162301,0,2.html"><strong>The problematic use of cultural symbols on Chinese cigarette packs</strong></a> (2023). <em>Tobacco-Induced Diseases</em>
                 </li>
                 <li style="margin-bottom: 20px;">
-                    Under review @ <strong><em>Science</em></strong>: <strong>Renewable-driven industrial relocation toward a more equitable net-zero energy transition</strong>
+                    under review @ <strong><em>Science</em></strong>: <strong>Renewable-driven industrial relocation toward a more equitable net-zero energy transition</strong>
                 </li>
             </ul>
         </div>
         <div class="column" id="section4">
             <h2>art + other musings 🎨</h2>
-            <li style="margin-bottom: 20px;">
-                my Harvard Crimson Arts <a href="https://www.thecrimson.com/writer/1219834/Emily_L._Xing/"><strong>writer page</strong></a>
-            </li>
+            <!-- Art content -->
         </div>
     </div>
 
