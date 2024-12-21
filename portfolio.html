@@ -16,7 +16,6 @@
             transition: background 4s ease;
             overflow-x: hidden;
             min-height: 100vh;
-            position: relative;
         }
 
         h1 {
@@ -45,31 +44,31 @@
             color: #15265e;
         }
 
-        /* Masonry grid layout */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible columns */
-            grid-auto-flow: dense; /* Allow dense packing */
-            gap: 20px; /* Space between items */
+        /* Masonry column layout */
+        .masonry-container {
+            column-count: 3; /* Number of masonry columns */
+            column-gap: 15px; /* Gap between columns */
             padding: 20px;
         }
 
-        .grid-item {
-            position: relative;
+        .masonry-item {
+            display: inline-block; /* Ensure items flow into columns */
+            width: 100%; /* Items fill the column width */
+            margin-bottom: 15px; /* Add spacing between items */
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            cursor: pointer; /* Indicate interactivity */
+            cursor: pointer;
         }
 
-        .grid-item img {
-            width: 100%;
-            height: auto; /* Maintain natural height of the image */
+        .masonry-item img {
             display: block;
+            width: 100%; /* Ensure images scale properly */
+            height: auto; /* Maintain aspect ratio */
             transition: filter 0.3s ease; /* Smooth hover effect */
         }
 
-        .grid-item:hover img {
+        .masonry-item:hover img {
             filter: brightness(1.2); /* Slightly lighter on hover */
         }
 
@@ -113,14 +112,14 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .masonry-container {
+                column-count: 2; /* Fewer columns on smaller screens */
             }
         }
 
         @media (max-width: 480px) {
-            .grid-container {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            .masonry-container {
+                column-count: 1; /* Single column on very small screens */
             }
         }
     </style>
@@ -130,65 +129,65 @@
     <div class="home-link">
         <a href="index.html">home</a>
     </div>
-    <div class="grid-container">
-        <div class="grid-item">
+    <div class="masonry-container">
+        <div class="masonry-item">
             <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/A Field of Wishes.jpg" alt="A Field of Wishes">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/An Old Neighborhood.jpg" alt="An Old Neighborhood">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Astronomy Dreams.jpg" alt="Astronomy Dreams">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Blossom.jpg" alt="Blossom">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Cables, Casettes.jpg" alt="Cables, Casettes">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Feathers, Fly Freely!.png" alt="Feathers, Fly Freely!">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Let's Explore, Tonight, Together.png" alt="Let's Explore, Tonight, Together">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Midwinter.png" alt="Midwinter">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Morning Reads.png" alt="Morning Reads">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Mother.jpg" alt="Mother">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/My Grandpa, the Engineer.png" alt="My Grandpa, the Engineer">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/My Guardian Reef.png" alt="My Guardian Reef">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/My Mom's Childhood.jpg" alt="My Mom's Childhood">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/One Thousand Paper Cranes.png" alt="One Thousand Paper Cranes">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Partners in Crime.png" alt="Partners in Crime">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Spring, I Love You.png" alt="Spring, I Love You">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Sundays in the Kitchen.png" alt="Sundays in the Kitchen">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/The Bothriolepis and Me.png" alt="The Bothriolepis and Me">
         </div>
-        <div class="grid-item">
+        <div class="masonry-item">
             <img src="images/art portfolio images/Two Flowers.png" alt="Two Flowers">
         </div>
     </div>
@@ -204,7 +203,7 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
         const closeButton = document.getElementById('lightbox-close');
-        const gridItems = document.querySelectorAll('.grid-item img');
+        const gridItems = document.querySelectorAll('.masonry-item img');
 
         gridItems.forEach(item => {
             item.addEventListener('click', () => {
