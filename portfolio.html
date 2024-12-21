@@ -16,23 +16,36 @@
             transition: background 4s ease;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
         }
 
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 2.5rem;
+        /* Top bar styling */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 1.8rem;
         }
 
         .home-link {
-            text-align: center;
-            margin-bottom: 20px;
+            text-align: right;
         }
 
         .home-link a {
             color: #5bc0be;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1rem;
             border: 2px solid #5bc0be;
             padding: 5px 10px;
             border-radius: 5px;
@@ -48,7 +61,7 @@
         .masonry-container {
             column-count: 3; /* Number of masonry columns */
             column-gap: 15px; /* Gap between columns */
-            padding: 20px;
+            padding: 80px 20px 20px; /* Add top padding for the bar */
         }
 
         .masonry-item {
@@ -80,7 +93,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.5); /* Less harsh, transparent background */
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -115,20 +128,33 @@
             .masonry-container {
                 column-count: 2; /* Fewer columns on smaller screens */
             }
+
+            .top-bar h1 {
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
             .masonry-container {
                 column-count: 1; /* Single column on very small screens */
             }
+
+            .top-bar h1 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>artwork</h1>
-    <div class="home-link">
-        <a href="index.html">home</a>
+    <!-- Top bar with artwork and home link -->
+    <div class="top-bar">
+        <h1>artwork</h1>
+        <div class="home-link">
+            <a href="index.html">home</a>
+        </div>
     </div>
+
+    <!-- Masonry grid -->
     <div class="masonry-container">
         <div class="masonry-item">
             <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
@@ -226,3 +252,4 @@
     </script>
 </body>
 </html>
+
