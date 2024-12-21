@@ -123,25 +123,13 @@ footer {
     margin-top: 50px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Adjust for 2 columns per row */
-    gap: 20px;
-    padding: 20px;
-}
 
-.grid-item {
-    text-align: center;
-    font-family: 'DejaVu Sans Mono', monospace;
-    color: white;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     gap: 20px;
-    padding: 20px;
+    padding: 16px;
     text-align: center;
 }
 
@@ -203,7 +191,7 @@ footer {
 
 /* Specific styles for MDandMe and New York Times */
 .grid-item[data-title="MDandMe"] .grid-image {
-    object-position: top; /* Move MDandMe image to the top of the frame */
+    object-position: 20% top; /* Move MDandMe image to the top of the frame */
 }
 
 .grid-item[data-title="New York Times"] .grid-image {
@@ -229,5 +217,5 @@ footer {
 .grid-item p {
     font-size: 1em;
     line-height: 1.6;
-    margin-top: 15px; /* Increased spacing */
+    margin-top: 25px; /* Increased spacing */
 }
