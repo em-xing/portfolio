@@ -6,66 +6,88 @@
     <title>emily xing - art portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'DejaVu Sans Mono', monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #15265e;
-            color: #ffffff;
-        }
+        /* Background Gradient */
+/* General body and layout styles */
+body {
+    font-family: 'DejaVu Sans Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1); /* Keep the gradient */
+    color: #ffffff;
+    transition: background 4s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
 
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 2.5rem;
-        }
+/* Title and header adjustments */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+}
 
-        .home-link {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.home-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .home-link a {
-            color: #5bc0be;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border: 2px solid #5bc0be;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+.home-link a {
+    color: #5bc0be;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid #5bc0be;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .home-link a:hover {
-            background-color: #5bc0be;
-            color: #15265e;
-        }
+.home-link a:hover {
+    background-color: #5bc0be;
+    color: #15265e;
+}
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three columns */
-            gap: 20px;
-            padding: 20px;
-            overflow-y: scroll;
-            height: 80vh; /* Set the height for scrolling */
-        }
+/* Masonry container */
+.masonry-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow images to wrap */
+    gap: 15px; /* Spacing between images */
+    justify-content: center; /* Center the layout */
+    padding: 20px;
+}
 
-        .grid-item {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+/* Masonry items */
+.masonry-item {
+    width: calc(33.333% - 10px); /* Make images dynamic but non-uniform */
+    border-radius: 15px; /* Rounded edges */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .grid-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
 
-        .grid-item img:hover {
-            transform: scale(1.05); /* Slight zoom effect */
-        }
+.masonry-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+@media (max-width: 768px) {
+    .masonry-item {
+        width: calc(50% - 10px); /* Two columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-item {
+        width: calc(100% - 10px); /* One column for very small screens */
+    }
+}
 
         /* Lightbox styling */
       /* Lightbox styling */
