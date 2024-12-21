@@ -12,34 +12,35 @@ body {
     position: relative;
 }
 
-/* Header Styling */
 header {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 1000;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-    padding: 20px 0;
-    color: white;
-    transition: background 0.3s ease-in-out;
+    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+    z-index: 2;
 }
 
-header h1 {
-    font-size: 3rem;
-    font-family: 'Great Vibes', cursive;
+h1 {
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 3em;
     margin: 0;
-    opacity: 1; /* Always fully visible */
+    transition: font-size 0.5s ease;
 }
 
 .subheading {
-    font-size: 1.2rem;
     font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 1.5em;
     margin-top: 10px;
-    opacity: 1; /* Initial opacity */
-    transition: opacity 0.3s ease; /* Smooth fade */
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50ch;
+    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
-
 
 @keyframes typing {
     from {
@@ -211,5 +212,3 @@ footer {
 .grid-item[data-title="Visual Art"] .grid-image {
     object-position: top; /* Align the Portfolio image at the top */
 }
-
-
