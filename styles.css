@@ -169,7 +169,7 @@ footer {
     font-family: 'DejaVu Sans Mono', monospace;
     color: white;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    margin-top: 20px; /* Add spacing between the image and text */
+    margin-top: 20px; /* Adjust spacing above the grid item, if needed */
 }
 
 /* Image wrapper ensures consistent dimensions */
@@ -179,6 +179,7 @@ footer {
     overflow: hidden;
     border-radius: 10px;
     position: relative;
+    margin-bottom: 40px; /* Add more spacing between image and text */
 }
 
 /* Base styles for all grid images */
@@ -189,13 +190,14 @@ footer {
     transition: transform 0.3s ease;
 }
 
-/* Specific styles for MDandMe and New York Times */
+/* Specific styles for MDandMe */
 .grid-item[data-title="MDandMe"] .grid-image {
-    object-position: 20% top; /* Move MDandMe image to the top of the frame */
+    object-position: 30% top; /* Move MDandMe image slightly lower */
 }
 
+/* Specific styles for New York Times */
 .grid-item[data-title="New York Times"] .grid-image {
-    object-position: bottom; /* Move New York Times image lower */
+    object-position: 10% top; /* Move New York Times image slightly higher */
 }
 
 /* Specific styles for HUUSL */
@@ -217,5 +219,6 @@ footer {
 .grid-item p {
     font-size: 1em;
     line-height: 1.6;
-    margin-top: 25px; /* Increased spacing */
+    margin-top: 35px; /* Further increase spacing between images and text */
 }
+
