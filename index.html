@@ -195,11 +195,11 @@
             
     <p>an incomplete list of my creative brainchildren:</p>
     <ul style="list-style: disc; padding-left: 20px;">
-        <li><strong>i’m a visual artist</strong>. see my <a href="portfolio.html" target="_blank">portfolio</a></li>
+        <li><strong>i’m a visual artist</strong>. see my <a href="portfolio.html" target="_blank"><strong>portfolio</strong></a></li>
         <li>
             set-designing Harvard theater: 
-            <em><a href="https://harvardromeojuliet.carrd.co/" target="_blank">Romeo & Juliet</a></em> (2024), 
-            <em><a href="https://constellationsharvard.carrd.co/" target="_blank">Constellations</a></em> (2024)
+            <em><a href="https://harvardromeojuliet.carrd.co/" target="_blank"><strong>Romeo & Juliet</strong></a></em> (2024), 
+            <em><a href="https://constellationsharvard.carrd.co/" target="_blank"><strong>Constellations</strong></a></em> (2024)
         </li>
         <li>
             former biomedical illustrator @ Johns Hopkins: using <strong><a href="https://www.hopkinsmedicine.org/news/articles/2023/04/drawing-conclusions-how-comics-make-nathan-gray-a-better-doctor" target="_blank">digital stories</a></strong> 
@@ -210,7 +210,7 @@
             <a href="https://www.thecrimson.com/writer/1219834/Emily_L._Xing/"><strong>writer page</strong></a>
         </li>
         <li>
-            random late-night <a href="https://substack.com/home?utm_source=user-menu" target="_blank">poetry</a>, <a href="https://www.youtube.com/@emx6212" target="_blank">compositions</a>
+            random late-night <a href="https://substack.com/home?utm_source=user-menu" target="_blank"><strong>poetry</strong></a>, <a href="https://www.youtube.com/@emx6212" target="_blank"><strong>compositions</strong></a>
         </li>
     </ul>
 </div>
@@ -222,9 +222,8 @@
         © 2024 emily xing. all rights reserved.
     </footer>
 
-
 <script>
-        window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const subtitle = document.querySelector('.subheading');
     const sections = document.querySelectorAll('.column');
@@ -233,6 +232,10 @@
     const fadeStartSections = 725; // Sections start fading at 700
     const fadeEndSections = 750; // Sections fully fade out at 1000
     const delayFactor = 275; // Delay between each section's animation
+
+    const artMusings = document.querySelector('#section4'); // Select "art + musings 🎨"
+    const artFadeStart = fadeStartSections + 200; // Start later for this section
+    const artFadeEnd = fadeEndSections + 200; // End later for this section
 
     const scrollY = window.scrollY;
 
@@ -254,20 +257,36 @@
         const start = fadeStartSections + delayOffset;
         const end = fadeEndSections + delayOffset;
 
-        if (scrollY > start && scrollY < end) {
-            const opacity = 1 - (scrollY - start) / (end - start);
-            section.style.opacity = opacity;
-            section.style.transform = translateY(${(1 - opacity) * 20}px); // Subtle travel effect
-        } else if (scrollY <= start) {
-            section.style.opacity = 1;
-            section.style.transform = 'translateY(0)';
+        // Apply different timing for "art + musings 🎨"
+        if (section === artMusings) {
+            if (scrollY > artFadeStart && scrollY < artFadeEnd) {
+                const opacity = 1 - (scrollY - artFadeStart) / (artFadeEnd - artFadeStart);
+                section.style.opacity = opacity;
+                section.style.transform = `translateY(${(1 - opacity) * 20}px)`; // Subtle travel effect
+            } else if (scrollY <= artFadeStart) {
+                section.style.opacity = 1;
+                section.style.transform = 'translateY(0)';
+            } else {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+            }
         } else {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(20px)';
+            if (scrollY > start && scrollY < end) {
+                const opacity = 1 - (scrollY - start) / (end - start);
+                section.style.opacity = opacity;
+                section.style.transform = `translateY(${(1 - opacity) * 20}px)`; // Subtle travel effect
+            } else if (scrollY <= start) {
+                section.style.opacity = 1;
+                section.style.transform = 'translateY(0)';
+            } else {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+            }
         }
     });
 });
+</script>
 
-    </script>
+
 </body>
 </html>
