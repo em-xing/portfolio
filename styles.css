@@ -123,3 +123,32 @@ footer {
     margin-top: 50px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust for 2 columns per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    text-align: center;
+    font-family: 'DejaVu Sans Mono', monospace;
+    color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.grid-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.grid-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
