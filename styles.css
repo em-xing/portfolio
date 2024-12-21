@@ -12,35 +12,34 @@ body {
     position: relative;
 }
 
+/* Header Styling */
 header {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    width: 100%;
     text-align: center;
-    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
-    z-index: 2;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px 0;
+    color: white;
+    transition: background 0.3s ease-in-out;
 }
 
-h1 {
-    font-family: 'DejaVu Sans Mono', monospace;
-    font-size: 3em;
+header h1 {
+    font-size: 3rem;
+    font-family: 'Great Vibes', cursive;
     margin: 0;
-    transition: font-size 0.5s ease;
+    opacity: 1; /* Always fully visible */
 }
 
 .subheading {
+    font-size: 1.2rem;
     font-family: 'DejaVu Sans Mono', monospace;
-    font-size: 1.5em;
     margin-top: 10px;
-    border-right: 2px solid #ffffff;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 50ch;
-    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
-    opacity: 1;
-    transition: opacity 0.5s ease;
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.3s ease; /* Smooth fade */
 }
+
 
 @keyframes typing {
     from {
