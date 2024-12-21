@@ -3,162 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>emily xing - portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>emily xing - art portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Background Gradient */
+        body {
+            font-family: 'DejaVu Sans Mono', monospace;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
+            color: #ffffff;
+            transition: background 4s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Top bar styling */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px; /* Increased height */
+            z-index: 100;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 2rem; /* Increased font size */
+            position: relative;
+            top: 10px; /* Bring closer to the center */
+        }
+
+        .home-link {
+            text-align: right;
+            position: relative;
+            top: 10px; /* Bring closer to the center */
+        }
+
+        .home-link a {
+            color: #5bc0be;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #5bc0be;
+            padding: 8px 15px; /* Increased padding */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .home-link a:hover {
+            background-color: #5bc0be;
+            color: #15265e;
+        }
+
+        /* Masonry column layout */
+        .masonry-container {
+            column-count: 3; /* Number of masonry columns */
+            column-gap: 15px; /* Gap between columns */
+            padding: 100px 20px 20px; /* Add top padding for the bar */
+        }
+
+        .masonry-item {
+            display: inline-block; /* Ensure items flow into columns */
+            width: 100%; /* Items fill the column width */
+            margin-bottom: 15px; /* Add spacing between items */
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .masonry-item img {
+            display: block;
+            width: 100%; /* Ensure images scale properly */
+            height: auto; /* Maintain aspect ratio */
+            transition: filter 0.3s ease; /* Smooth hover effect */
+        }
+
+        .masonry-item:hover img {
+            filter: brightness(1.2); /* Slightly lighter on hover */
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Less harsh, transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox.active {
+            display: flex; /* Show the lightbox when active */
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Close button for lightbox */
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .masonry-container {
+                column-count: 2; /* Fewer columns on smaller screens */
+            }
+
+            .top-bar h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masonry-container {
+                column-count: 1; /* Single column on very small screens */
+            }
+
+            .top-bar h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-image"></div>
-    <header>
-        <h1>emily xing</h1>
-        <div class="subheading">impact through science, society & stories 🌎‍✈️ </div>
-    </header>
-
-    <div class="content">
-        <div class="column" id="section1">
-            <h2>hi! i'm emily. 🌱</h2>
-            <p>i’m an undergrad @ Harvard studying <strong>math + data science</strong> 📊; researcher fascinated by our <strong>built societies & environment</strong> 🌐; reshaper of <strong>words & art</strong> into stories 📚; chronic music-looper, hobbyist anti-chess player, and matcha enthusiast 🍵</p>
-        </div>
-        <div class="column" id="section2">
-            <h2>research 🔎</h2>
-            <p style="margin-bottom: 20px;">questions i’m currently pursuing:</p>
-            <ul style="list-style: disc; padding-left: 20px;">
-                <li>
-                    are recent design changes on big social media actually improving user <strong>digital well-being</strong>?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://hsph.harvard.edu/research/viswanath-lab/" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#800080'" 
-                               onmouseout="this.style.color='white'">Viswanath Lab</a>
-                        </strong> @ Harvard T.H. Chan School of Public Health
-                    </span>
-                </li>
-                <li style="margin-top: 20px;">
-                    how do we close current <strong>tobacco control policy gaps</strong> in media, packaging, and enforcement?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://publichealth.jhu.edu/institute-for-global-tobacco-control" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#800080'" 
-                               onmouseout="this.style.color='white'">Institute for Global Tobacco Control</a>
-                        </strong> @ Johns Hopkins Bloomberg School of Public Health
-                    </span>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤  Xing et al. <a href="https://www.tobaccoinduceddiseases.org/The-problematic-use-of-cultural-symbols-on-Chinese-cigarette-packs,162301,0,2.html" target="_blank" rel="noopener noreferrer" 
-                               style="color: #B8E6E6; text-decoration: underline;" 
-                               onmouseover="this.style.color='#800080'" 
-                               onmouseout="this.style.color='#B8E6E6'">><strong>The problematic use of cultural symbols on Chinese cigarette packs</strong></a> (2023). <em><span style="color: #B8E6E6;">Tobacco-Induced Diseases</span></em>
-                    </span>
-                </li>
-                <li style="margin-top: 20px;">
-                    how do we build the best renewable energy deployment models for an <strong>equitable energy transition</strong>?<br>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ <strong>
-                            <a href="https://seas.harvard.edu/news/2024/10/climate-research-goes-national" target="_blank" rel="noopener noreferrer" 
-                               style="color: white; text-decoration: underline;" 
-                               onmouseover="this.style.color='#800080'" 
-                               onmouseout="this.style.color='white'">Harvard-China Project</a>
-                        </strong>+ Tsinghua School of Environment
-                    </span>
-                    <span style="display: block; margin-left: 20px; color: #B8E6E6;">
-                        ➤ under review @ <span style="white: w;"><em>Science</em></span>: <span style="color: #B8E6E6;"><strong>Renewable-driven industrial relocation toward a more equitable net-zero energy transition</span></strong>
-                    </span>
-                </li>
-            </ul>
-        </div>
-        <div class="column" id="section3">
-            <h2>writing 📝</h2>
-<p style="margin-bottom: 20px;">words about things i love:</p>
-<div class="grid-container">
-    <div class="grid-item" data-title="MDandMe">
-        <div class="image-wrapper">
-            <img src="images/MDandMe image.png" alt="MDandMe" class="grid-image">
-        </div>
-        <p>
-            <span style="color: #d7fafa;">MDandMe</span>’s AI is making <strong>medical information</strong> accessible to <strong>80,000+ users</strong>. i seek to humanize 
-            <a href="https://mdme.ai/blog/2024/09/18/marias-story"><strong>their stories</strong></a>.
-        </p>
-    </div>
-    <div class="grid-item" data-title="Bow Seat">
-        <div class="image-wrapper">
-            <img src="images/Bow Seat image.webp" alt="Bow Seat" class="grid-image">
-        </div>
-        <p>
-            <a href="https://bowseat.org/news/climate-change-and-effective-altruism-a-cause-worth-fighting-for/"><strong>thinkpieces</strong></a> i wrote @ <span style="color: #d7fafa;">Bow Seat</span>, the world’s largest <strong>creative environmental program</strong> for youth
-        </p>
-    </div>
-    <div class="grid-item" data-title="New York Times">
-        <div class="image-wrapper">
-            <img src="images/New York Times image.webp" alt="New York Times" class="grid-image">
-        </div>
-        <p>
-            my <a href="https://www.nytimes.com/2022/05/11/learning/from-addiction-to-aviation-tobacco-an-unexpected-fuel-for-the-future.html"><em><strong>New York Times</strong></em></a> published science writing on <strong>tobacco</strong> as <strong>novel green fuel</strong>
-        </p>
-    </div>
-    <div class="grid-item" data-title="HUUSL">
-        <div class="image-wrapper">
-            <img src="images/HUUSL image.png" alt="HUUSL" class="grid-image">
-        </div>
-        <p>
-            some <a href="https://www.huusl.org/bulletin/sketches-of-a-re-imagined-mass-and-cass"><strong>urban designs</strong></a> justly re-imagining <strong>marginalized neighborhoods</strong>; <span style="color: #d7fafa;">Harvard Urban Sustainability Lab</span>
-        </p>
-    </div>
-</div>
-
-
-</div>
-
-        <div class="column" id="section4">
-    <h2>art + other musings 🎨</h2>
-    <p style="margin-bottom: 20px;">an incomplete list of my creative brainchildren:</p>
-    <div class="grid-container">
-        <!-- Visual Artist -->
-        <div class="grid-item" data-title="Visual Art">
-            <div class="image-wrapper">
-                <img src="images/Portfolio image.png" alt="Visual Art" class="grid-image">
-            </div>
-            <p>
-                i'm a <strong>visual artist</strong>. see my <a href="portfolio.html" target="_blank"><strong>portfolio</strong></a>
-            </p>
-        </div>
-        <!-- Theater -->
-        <div class="grid-item" data-title="Theater">
-            <div class="image-wrapper">
-                <img src="images/Theater.jpg" alt="Theater" class="grid-image">
-            </div>
-            <p>
-                set-designing Harvard theater: 
-                <em><a href="https://harvardromeojuliet.carrd.co/" target="_blank"><strong>Romeo & Juliet</strong></a></em> (2024), 
-                <em><a href="https://constellationsharvard.carrd.co/" target="_blank"><strong>Constellations</strong></a></em> (2024)
-            </p>
-        </div>
-        <!-- Biomedical Illustration -->
-        <div class="grid-item" data-title="Biomedical Illustration">
-            <div class="image-wrapper">
-                <img src="images/mTools4Life image.jpeg" alt="Biomedical Illustration" class="grid-image">
-            </div>
-            <p>
-                biomedical illustration @ <span style="color: #d7fafa;">Johns Hopkins</span>: using <a href="https://www.hopkinsmedicine.org/news/articles/2023/04/drawing-conclusions-how-comics-make-nathan-gray-a-better-doctor" target="_blank"><strong>digital stories</strong></a> to fight <strong>opioid use disorder</strong>
-            </p>
-        </div>
-        <!-- Crimson Arts -->
-        <div class="grid-item" data-title="Crimson Arts">
-            <div class="image-wrapper">
-                <img src="images/CrimArts image.jpg" alt="Crimson Arts" class="grid-image">
-            </div>
-            <p>
-                my <span style="color: #d7fafa;">Harvard Crimson Arts</span> <a href="https://www.thecrimson.com/writer/1219834/Emily_L._Xing/"><strong>writer page</strong></a>, random late-night <a href="https://substack.com/@emxing" target="_blank"><strong>poetry</strong></a>, <a href="https://www.youtube.com/@emx6212" target="_blank"><strong>compositions</strong></a>
-            </p>
+    <!-- Top bar with artwork and home link -->
+    <div class="top-bar">
+        <h1>artwork</h1>
+        <div class="home-link">
+            <a href="index.html">home</a>
         </div>
     </div>
-</div>
 
+    <!-- Masonry grid -->
+    <div class="masonry-container">
+        <div class="masonry-item">
+            <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/A Field of Wishes.jpg" alt="A Field of Wishes">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/An Old Neighborhood.jpg" alt="An Old Neighborhood">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Astronomy Dreams.jpg" alt="Astronomy Dreams">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Blossom.jpg" alt="Blossom">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Cables, Casettes.jpg" alt="Cables, Casettes">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Feathers, Fly Freely!.png" alt="Feathers, Fly Freely!">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Let's Explore, Tonight, Together.png" alt="Let's Explore, Tonight, Together">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Midwinter.png" alt="Midwinter">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Morning Reads.png" alt="Morning Reads">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Mother.jpg" alt="Mother">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/My Grandpa, the Engineer.png" alt="My Grandpa, the Engineer">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/My Guardian Reef.png" alt="My Guardian Reef">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/My Mom's Childhood.jpg" alt="My Mom's Childhood">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/One Thousand Paper Cranes.png" alt="One Thousand Paper Cranes">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Partners in Crime.png" alt="Partners in Crime">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Spring, I Love You.png" alt="Spring, I Love You">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Sundays in the Kitchen.png" alt="Sundays in the Kitchen">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/The Bothriolepis and Me.png" alt="The Bothriolepis and Me">
+        </div>
+        <div class="masonry-item">
+            <img src="images/art portfolio images/Two Flowers.png" alt="Two Flowers">
+        </div>
+    </div>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img id="lightbox-image" src="" alt="Expanded Image">
+    </div>
+
+    <!-- Footer -->
     <footer>
         © 2024 emily xing. all rights reserved.
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const closeButton = document.getElementById('lightbox-close');
+        const gridItems = document.querySelectorAll('.masonry-item img');
+
+        gridItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImage.src = item.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            lightboxImage.src = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                lightboxImage.src = '';
+            }
+        });
+    </script>
 </body>
 </html>
