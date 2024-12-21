@@ -3,79 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Image Interaction</title>
+    <title>emily xing - art portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'DejaVu Sans Mono', monospace;
             margin: 0;
+            padding: 0;
+            background-color: #15265e;
+            color: #ffffff;
         }
-        .gallery-item {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5rem;
         }
-        .gallery-item img {
-            width: 300px;
-            height: auto;
-            border-radius: 5px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns */
+            gap: 20px;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 80vh; /* Set the height for scrolling */
         }
-        .gallery-item:hover img {
-            transform: scale(1.05);
-            filter: brightness(0.8);
+
+        .grid-item {
+            text-align: center;
+            transition: transform 0.3s ease;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+
+        .grid-item img {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
         }
-        .modal-content {
-            max-width: 80%;
-            max-height: 80%;
-            border-radius: 5px;
-            animation: zoomIn 0.3s;
+
+        .grid-item:hover {
+            transform: scale(1.05);
         }
-        @keyframes zoomIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* One column for very small screens */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="gallery-item" onclick="openModal(this)">
-        <img src="downloaded_images/5-my-guardian-reef-1_orig.png" alt="My Guardian Reef">
+    <h1>Art Portfolio</h1>
+    <div class="grid-container">
+        <!-- Add images with captions here -->
+        <div class="grid-item">
+            <img src="images/art portfolio images/2012 Halloween.jpg" alt="2012 Halloween">
+            <p>2012 Halloween</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/A Field of Wishes.jpg" alt="A Field of Wishes">
+            <p>A Field of Wishes</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/An Old Neighborhood.jpg" alt="An Old Neighborhood">
+            <p>An Old Neighborhood</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Astronomy Dreams.jpg" alt="Astronomy Dreams">
+            <p>Astronomy Dreams</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Blossom.jpg" alt="Blossom">
+            <p>Blossom</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Cables, Casettes.jpg" alt="Cables, Casettes">
+            <p>Cables, Casettes</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Feathers, Fly Freely!.png" alt="Feathers, Fly Freely!">
+            <p>Feathers, Fly Freely!</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Let's Explore, Tonight, Together.png" alt="Let's Explore, Tonight, Together">
+            <p>Let's Explore, Tonight, Together</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Midwinter.png" alt="Midwinter">
+            <p>Midwinter</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Morning Reads.png" alt="Morning Reads">
+            <p>Morning Reads</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Mother.jpg" alt="Mother">
+            <p>Catching the Stomach Bug</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/My Grandpa, the Engineer.png" alt="My Grandpa, the Engineer">
+            <p>My Grandpa, the Engineer</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/My Guardian Reef.png" alt="My Guardian Reef">
+            <p>My Guardian Reef</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/My Mom's Childhood.jpg" alt="My Mom's Childhood">
+            <p>My Mom's Childhood</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/One Thousand Paper Cranes.png" alt="One Thousand Paper Cranes">
+            <p>One Thousand Paper Cranes</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Partners in Crime.png" alt="Partners in Crime">
+            <p>Partners in Crime</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Spring, I Love You.png" alt="Spring, I Love You">
+            <p>Spring, I Love You</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Sundays in the Kitchen.png" alt="Sundays in the Kitchen">
+            <p>Sundays in the Kitchen</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/The Bothriolepis and Me.png" alt="The Bothriolepis and Me">
+            <p>The Bothriolepis and Me</p>
+        </div>
+        <div class="grid-item">
+            <img src="images/art portfolio images/Two Flowers.png" alt="Two Flowers">
+            <p>Two Flowers</p>
+        </div>
     </div>
-
-    <div id="myModal" class="modal" onclick="closeModal(event)">
-        <img class="modal-content" id="img01">
-    </div>
-
-    <script>
-        function openModal(imgElement) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "flex";
-            modalImg.src = imgElement.querySelector('img').src;
-        }
-
-        function closeModal(event) {
-            if (event.target.id === "myModal") {
-                var modal = document.getElementById("myModal");
-                modal.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
