@@ -15,28 +15,22 @@ window.addEventListener('scroll', () => {
         header.style.transform = 'translate(-50%, -50%)';
     }
 
-    // Fade out subtitle
-    subtitle.style.opacity = Math.max(0, 1 - scrollY / 100);
-
-    // Fade out profile image
-    profileImage.style.opacity = Math.max(0, 1 - scrollY / 100);
-
-    // Animate sections
+    // Scale sections into view
     sections.forEach((section, index) => {
         const delay = index * 300;
         const start = 770 + delay;
-        const end = 790 + delay;
+        const end = 970 + delay;
 
         if (scrollY > start && scrollY < end) {
-            const opacity = 1 - (scrollY - start) / (end - start);
-            section.style.opacity = opacity;
-            section.style.transform = `translateY(${(1 - opacity) * 20}px)`;
-        } else if (scrollY <= start) {
+            const progress = (scrollY - start) / (end - start);
+            section.style.transform = `scale(${0.8 + progress * 0.2})`;
             section.style.opacity = 1;
-            section.style.transform = 'translateY(0)';
+        } else if (scrollY <= start) {
+            section.style.transform = 'scale(0.8)';
+            section.style.opacity = 0.5;
         } else {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(20px)';
+            section.style.transform = 'scale(1)';
+            section.style.opacity = 1;
         }
     });
 });
