@@ -8,11 +8,12 @@
     <style>
         /* Background Gradient */
 /* General body and layout styles */
+/* General body and layout styles */
 body {
     font-family: 'DejaVu Sans Mono', monospace;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1); /* Keep the gradient */
+    background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
     color: #ffffff;
     transition: background 4s ease;
     overflow-x: hidden;
@@ -47,47 +48,51 @@ h1 {
     color: #15265e;
 }
 
-/* Masonry container */
-.masonry-container {
+/* Container for images */
+.image-container {
     display: flex;
-    flex-wrap: wrap; /* Allow images to wrap */
-    gap: 15px; /* Spacing between images */
-    justify-content: center; /* Center the layout */
+    flex-wrap: wrap;
+    justify-content: center; /* Center-align the content */
+    gap: 20px; /* Add space between items */
     padding: 20px;
 }
 
-/* Masonry items */
-.masonry-item {
-    width: calc(33.333% - 10px); /* Make images dynamic but non-uniform */
-    border-radius: 15px; /* Rounded edges */
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+/* Individual image items */
+.image-item {
+    width: calc(30% - 20px); /* Set dynamic width */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensure image stays rounded */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.masonry-item img {
+.image-item img {
     width: 100%;
     height: auto;
-    display: block;
     object-fit: cover;
+    display: block;
+    border-radius: 15px; /* Rounded corners for images */
 }
 
-.masonry-item:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+/* Hover effect for images */
+.image-item:hover {
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
-    .masonry-item {
-        width: calc(50% - 10px); /* Two columns for smaller screens */
+    .image-item {
+        width: calc(45% - 20px); /* Two images per row on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
-    .masonry-item {
-        width: calc(100% - 10px); /* One column for very small screens */
+    .image-item {
+        width: calc(100% - 20px); /* One image per row on very small screens */
     }
 }
+
 
         /* Lightbox styling */
       /* Lightbox styling */
