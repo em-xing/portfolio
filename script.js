@@ -6,24 +6,29 @@ window.addEventListener('scroll', () => {
     const emilyXing = document.querySelector('header h1');
     const scrollY = window.scrollY;
 
-    // Adjust header opacity based on scroll
+    // Adjust header opacity (global)
     if (scrollY > 100) {
         header.style.opacity = '0.8';
     } else {
         header.style.opacity = '1';
     }
 
-    // Fade out profile image, subheading, and "Emily Xing" on scroll
+    // Fade out profile image and subheading first
     if (scrollY > 100) {
         profileImage.style.opacity = '0';
         subheading.style.opacity = '0';
-        emilyXing.style.opacity = '0';
-        profileImage.style.transition = 'opacity 0.5s ease';
-        subheading.style.transition = 'opacity 0.5s ease';
-        emilyXing.style.transition = 'opacity 0.5s ease';
+        profileImage.style.transition = 'opacity 0.3s ease'; // Faster fade for profile image
+        subheading.style.transition = 'opacity 0.3s ease'; // Faster fade for subheading
     } else {
         profileImage.style.opacity = '1';
         subheading.style.opacity = '1';
+    }
+
+    // Fade out "Emily Xing" after profile and subheading
+    if (scrollY > 150) { // Delays fade-out of Emily Xing
+        emilyXing.style.opacity = '0';
+        emilyXing.style.transition = 'opacity 0.5s ease'; // Slower fade for name
+    } else {
         emilyXing.style.opacity = '1';
     }
 
