@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono');
 
-body {
+body, html {
     font-family: 'DejaVu Sans Mono', monospace;
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
     color: #ffffff;
     transition: background 4s ease;
-    overflow-x: hidden;
-    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    min-height: 100%; /* Allow content to expand vertically */
     position: relative;
 }
 
@@ -20,6 +21,43 @@ header {
     text-align: center;
     transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
     z-index: 2;
+}
+
+.profile-image {
+    position: absolute; /* Change to absolute to allow scrolling */
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
+    background-size: cover;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.content {
+    padding: 50px;
+    margin-top: 120px; /* Offset for the top-bar */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    z-index: 100;
 }
 
 h1 {
@@ -212,29 +250,6 @@ footer {
 .grid-item[data-title="Visual Art"] .grid-image {
     object-position: top; /* Align the Portfolio image at the top */
 }
-/* Top bar styling */
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    z-index: 100;
-}
-
-.top-bar h1 {
-    margin: 0;
-    font-size: 2rem;
-    position: relative;
-    left: 40px;
-    top: 5px;
-}
-
 
 
 
