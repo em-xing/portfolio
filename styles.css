@@ -38,7 +38,49 @@
     transition: background 0.5s ease; /* Smooth transition effect */
 }
 
-       
+       .subheading {
+    font-size: 1.5em;
+    max-width: 90%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #ffffff;
+    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+}
+
+@media (max-width: 768px) {
+    .subheading {
+        font-size: 1.2em;
+        max-width: 80%;
+        animation: typing 2.5s steps(40, end), blink 0.5s step-end infinite;
+    }
+}
+
+@media (max-width: 480px) {
+    .subheading {
+        font-size: 1em;
+        max-width: 70%;
+        animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: #ffffff;
+    }
+}
 
         a {
             text-decoration: underline;
@@ -242,47 +284,6 @@
     }
 }
 
-.subheading {
-    font-size: 1.5em;
-    max-width: 90%;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #ffffff;
-    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
-}
 
-@media (max-width: 768px) {
-    .subheading {
-        font-size: 1.2em;
-        max-width: 80%;
-        animation: typing 2.5s steps(40, end), blink 0.5s step-end infinite;
-    }
-}
-
-@media (max-width: 480px) {
-    .subheading {
-        font-size: 1em;
-        max-width: 70%;
-        animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
-    }
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    from {
-        border-color: transparent;
-    }
-    to {
-        border-color: #ffffff;
-    }
-}
+    
 
