@@ -29,7 +29,7 @@ h1 {
     transition: font-size 0.5s ease;
 }
 
-.subheading {
+.subheading, h2 {
     font-family: 'DejaVu Sans Mono', monospace;
     font-size: 1.5em;
     margin-top: 10px;
@@ -38,7 +38,7 @@ h1 {
     overflow: hidden;
     letter-spacing: 0.15em;
     animation: 
-        typing 3.5s steps(40, end),
+        typing 3s steps(40, end),
         blink-caret 0.75s step-end infinite;
 }
 
@@ -51,6 +51,7 @@ h1 {
     from, to { border-color: transparent; }
     50% { border-color: white; }
 }
+
 
 
 @media (max-width: 768px) {
