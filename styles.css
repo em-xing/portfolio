@@ -38,13 +38,15 @@
     transition: background 0.5s ease; /* Smooth transition effect */
 }
 
-       .subheading {
+      .subheading {
     font-size: 1.5em;
     max-width: 90%;
     margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: normal;
+    overflow: visible;
     border-right: 2px solid #ffffff;
+    unicode-bidi: plaintext;
+    text-rendering: optimizeLegibility;
     animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
 }
 
@@ -81,6 +83,7 @@
         border-color: #ffffff;
     }
 }
+
 
         a {
             text-decoration: underline;
