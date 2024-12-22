@@ -94,6 +94,27 @@
             transition: opacity 0.5s ease, top 0.5s ease;
         }
 
+.linkedin-icon {
+    position: fixed; /* Sticks to the top-right corner */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    z-index: 100; /* Ensure it stays on top */
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.linkedin-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Optional: Makes it circular */
+    object-fit: cover; /* Ensures the image fits well */
+}
+
+.linkedin-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
         .content {
             padding: 50px;
             margin-top: 120vh;
