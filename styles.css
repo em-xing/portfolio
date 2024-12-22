@@ -38,23 +38,24 @@
     transition: background 0.5s ease; /* Smooth transition effect */
 }
 
-      .subheading {
+     .subheading {
     font-size: 1.5em;
     max-width: 90%;
     margin: 0 auto;
     white-space: normal;
-    overflow: visible;
+    overflow: hidden;
+    display: inline-block;
     border-right: 2px solid #ffffff;
     unicode-bidi: plaintext;
     text-rendering: optimizeLegibility;
-    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+    animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
 }
 
 @media (max-width: 768px) {
     .subheading {
         font-size: 1.2em;
         max-width: 80%;
-        animation: typing 2.5s steps(40, end), blink 0.5s step-end infinite;
+        animation: typing 4.5s steps(40, end), blink 0.5s step-end infinite;
     }
 }
 
@@ -62,7 +63,7 @@
     .subheading {
         font-size: 1em;
         max-width: 70%;
-        animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+        animation: typing 5s steps(30, end), blink 0.5s step-end infinite;
     }
 }
 
