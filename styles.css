@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    top: 50%;
+    top: 48%; /* Adjusted to move up slightly */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -37,33 +37,12 @@ h1 {
     transition: background 0.5s ease;
 }
 
-
-@media (max-width: 768px) {
-    .subheading {
-        font-size: 1.2em;
-        max-width: 80%;
-        white-space: normal;
-        overflow: visible;
-        animation: none;
-        border: none;
-        line-height: 1.4;
-    }
-}
-
-@media (max-width: 480px) {
-    .subheading {
-        font-size: 1em;
-        max-width: 880%;
-        line-height: 1.5;
-    }
-}
-
 @keyframes typing {
     from {
         width: 0;
     }
     to {
-        width: 100%;
+        width: 50ch;
     }
 }
 
@@ -225,7 +204,7 @@ footer {
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 30px; /* Increased gap for mobile */
         padding: 8px;
     }
 
@@ -248,7 +227,7 @@ footer {
 @media (max-width: 480px) {
     .grid-container {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 40px; /* Further increased gap for small screens */
     }
 
     .image-wrapper {
