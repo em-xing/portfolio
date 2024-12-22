@@ -11,15 +11,25 @@ body {
     min-height: 100vh;
     position: relative;
 }
-
 header {
-    position: fixed;
+    position: relative; /* Changed from fixed to relative */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
     z-index: 2;
+    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Adjust the height for the gradient bar */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    z-index: -1; /* Ensure it sits behind the header content */
 }
 
 h1 {
