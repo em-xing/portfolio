@@ -70,7 +70,7 @@ h1 {
 
     .subheading {
         font-size: 1.2em;
-        max-width: 80%;
+        max-width: 90%;
         white-space: normal;
         overflow: visible;
         animation: none; 
@@ -90,7 +90,7 @@ h1 {
 
     .subheading {
         font-size: 1em;
-        max-width: 70%;
+        max-width: 80%;
         line-height: 1.5;
     }
 
