@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    top: 48%; /* Adjusted to move up slightly */
+    top: 45%; 
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -37,12 +37,45 @@ h1 {
     transition: background 0.5s ease;
 }
 
+.subheading {
+    font-size: 1.5em;
+    max-width: 90%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    border-right: 2px solid #ffffff;
+    unicode-bidi: isolate;
+    text-rendering: optimizeLegibility;
+    animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
+}
+
+@media (max-width: 768px) {
+    .subheading {
+        font-size: 1.2em;
+        max-width: 80%;
+        white-space: normal;
+        overflow: visible;
+        animation: none;
+        border: none;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .subheading {
+        font-size: 1em;
+        max-width: 70%;
+        line-height: 1.5;
+    }
+}
+
 @keyframes typing {
     from {
         width: 0;
     }
     to {
-        width: 50ch;
+        width: 100%;
     }
 }
 
@@ -67,7 +100,7 @@ a:hover {
 
 .profile-image {
     position: fixed;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px;
@@ -204,7 +237,7 @@ footer {
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px; /* Increased gap for mobile */
+        gap: 30px;
         padding: 8px;
     }
 
@@ -227,7 +260,7 @@ footer {
 @media (max-width: 480px) {
     .grid-container {
         grid-template-columns: 1fr;
-        gap: 40px; /* Further increased gap for small screens */
+        gap: 40px;
     }
 
     .image-wrapper {
