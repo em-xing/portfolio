@@ -11,6 +11,20 @@ body {
     min-height: 100vh;
     position: relative;
 }
+.top-bar {
+    position: relative; /* Change from 'fixed' to 'relative' */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    z-index: 100;
+}
+
 
 header {
     position: fixed;
@@ -212,16 +226,4 @@ footer {
 .grid-item[data-title="Visual Art"] .grid-image {
     object-position: top; /* Align the Portfolio image at the top */
 }
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    z-index: 100;
-}
+
