@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    top: 40%; /* Adjusted to move header higher */
+    top: 50%; /* Moved down */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -35,7 +35,7 @@ h1 {
     max-width: 90%;
     margin: 0 auto;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: visible; /* Ensure no clipping */
     display: block;
     border-right: 2px solid #ffffff;
     unicode-bidi: isolate;
@@ -44,7 +44,30 @@ h1 {
     font-family: 'DejaVu Sans Mono', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
+.profile-image {
+    position: fixed;
+    top: 30%; /* Moved down */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
+    background-size: cover;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
 @media (max-width: 768px) {
+    header {
+        top: 60%; /* Further down for smaller screens */
+    }
+
+    .profile-image {
+        top: 40%;
+    }
+
     .subheading {
         font-size: 1.2em;
         max-width: 80%;
@@ -57,6 +80,14 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    header {
+        top: 65%;
+    }
+
+    .profile-image {
+        top: 45%;
+    }
+
     .subheading {
         font-size: 1em;
         max-width: 70%;
@@ -91,21 +122,6 @@ a {
 
 a:hover {
     color: purple;
-}
-
-.profile-image {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
-    background-size: cover;
-    z-index: 3;
-    opacity: 1;
-    transition: opacity 0.5s ease, top 0.5s ease;
 }
 
 .linkedin-icon {
