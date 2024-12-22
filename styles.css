@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    top: 45%; 
+    top: 40%; /* Adjusted to move header higher */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -30,13 +30,6 @@ h1 {
     white-space: nowrap;
 }
 
-.h1-background {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: background 0.5s ease;
-}
-
 .subheading {
     font-size: 1.5em;
     max-width: 90%;
@@ -48,6 +41,7 @@ h1 {
     unicode-bidi: isolate;
     text-rendering: optimizeLegibility;
     animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
+    font-family: 'DejaVu Sans Mono', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -87,6 +81,7 @@ h1 {
         border-color: #ffffff;
     }
 }
+
 
 a {
     text-decoration: underline;
