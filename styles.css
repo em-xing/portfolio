@@ -29,13 +29,12 @@ h1 {
     transition: font-size 0.5s ease;
     white-space: nowrap;
 }
-
 .subheading {
     font-size: 1.5em;
     max-width: 90%;
     margin: 0 auto;
     white-space: nowrap;
-    overflow: visible; /* Ensure no clipping */
+    overflow: hidden;
     display: block;
     border-right: 2px solid #ffffff;
     unicode-bidi: isolate;
@@ -43,6 +42,45 @@ h1 {
     animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
     font-family: 'DejaVu Sans Mono', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: #ffffff;
+    }
+}
+
+@media (max-width: 768px) {
+    .subheading {
+        font-size: 1.2em;
+        max-width: 80%;
+        white-space: normal;
+        overflow: visible;
+        animation: none; /* Disable typing effect for mobile */
+        border: none;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .subheading {
+        font-size: 1em;
+        max-width: 70%;
+        line-height: 1.5;
+    }
+}
+
 
 .profile-image {
     position: fixed;
@@ -68,15 +106,7 @@ h1 {
         top: 40%;
     }
 
-    .subheading {
-        font-size: 1.2em;
-        max-width: 80%;
-        white-space: normal;
-        overflow: visible;
-        animation: none;
-        border: none;
-        line-height: 1.4;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -88,30 +118,9 @@ h1 {
         top: 45%;
     }
 
-    .subheading {
-        font-size: 1em;
-        max-width: 70%;
-        line-height: 1.5;
-    }
+    
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    from {
-        border-color: transparent;
-    }
-    to {
-        border-color: #ffffff;
-    }
-}
 
 
 a {
