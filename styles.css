@@ -306,27 +306,26 @@
 }
 
     .image-wrapper {
-        height: 80px; /* Further reduce image height for very small screens */
+        height: 80px; 
     }
 
     .grid-item p {
-        font-size: 0.8em; /* Adjust paragraph font size */
-        line-height: 1.4; /* Adjust line spacing */
+        font-size: 0.8em;
+        line-height: 1.4; 
     }
 }
 
-/* Adjust the subheading for smaller screens */
 @media (max-width: 768px) {
     .subheading {
-        font-size: 1.2em; /* Reduce font size for better fit */
-        width: 40ch; /* Decrease width to fit smaller screens */
+        font-size: 1.2em; 
+        width: 40ch; 
     }
 }
 
 @media (max-width: 480px) {
     .subheading {
-        font-size: 1em; /* Further reduce font size for very small screens */
-        width: 30ch; /* Adjust width to match smaller screens */
+        font-size: 1em; 
+        width: 30ch; 
     }
 }
 
