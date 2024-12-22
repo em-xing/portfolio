@@ -48,7 +48,7 @@ h1 {
     unicode-bidi: isolate;
     text-rendering: optimizeLegibility;
     animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
-    font-family: 'DejaVu Sans Mono', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    font-family: 'DejaVu Sans Mono', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -66,7 +66,7 @@ h1 {
 @media (max-width: 480px) {
     .subheading {
         font-size: 1em;
-        max-width: 70%;
+        max-width: 880%;
         line-height: 1.5;
     }
 }
