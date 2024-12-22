@@ -30,11 +30,22 @@ window.addEventListener('scroll', () => {
         subheading.style.opacity = '1';
     }
 
-    // Add or remove faint black background on "emily xing"
+    // Move "Emily Xing" to top-right and shrink
     if (scrollY > 50) {
-        emilyXing.classList.add('h1-background');
+        emilyXing.style.position = 'fixed';
+        emilyXing.style.top = '10px';
+        emilyXing.style.right = '20px';
+        emilyXing.style.left = 'auto';
+        emilyXing.style.transform = 'none';
+        emilyXing.style.fontSize = '1.5em'; /* Shrink font size */
+        emilyXing.style.transition = 'all 0.5s ease'; /* Smooth transition */
     } else {
-        emilyXing.classList.remove('h1-background');
+        emilyXing.style.position = 'absolute';
+        emilyXing.style.top = '50%';
+        emilyXing.style.left = '50%';
+        emilyXing.style.right = 'auto';
+        emilyXing.style.transform = 'translate(-50%, -50%)';
+        emilyXing.style.fontSize = '3em'; /* Reset font size */
     }
 
     // Staggered fade in and fade out for sections
