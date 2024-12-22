@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    top: 50%; /* Moved down */
+    top: 55%; /* Moved further down */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -29,6 +29,7 @@ h1 {
     transition: font-size 0.5s ease;
     white-space: nowrap;
 }
+
 .subheading {
     font-size: 1.5em;
     max-width: 90%;
@@ -37,10 +38,9 @@ h1 {
     overflow: hidden;
     display: block;
     border-right: 2px solid #ffffff;
-    unicode-bidi: isolate;
     text-rendering: optimizeLegibility;
     animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
-    font-family: 'DejaVu Sans Mono', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    font-family: 'DejaVu Sans Mono', monospace;
 }
 
 @keyframes typing {
@@ -62,29 +62,44 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    header {
+        top: 60%;
+    }
+
     .subheading {
         font-size: 1.2em;
         max-width: 80%;
         white-space: normal;
         overflow: visible;
-        animation: none; /* Disable typing effect for mobile */
+        animation: none; /* Disable typing for mobile */
         border: none;
         line-height: 1.4;
+    }
+
+    .profile-image {
+        top: 50%;
     }
 }
 
 @media (max-width: 480px) {
+    header {
+        top: 65%;
+    }
+
     .subheading {
         font-size: 1em;
         max-width: 70%;
         line-height: 1.5;
     }
-}
 
+    .profile-image {
+        top: 55%;
+    }
+}
 
 .profile-image {
     position: fixed;
-    top: 30%; /* Moved down */
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px;
@@ -96,32 +111,6 @@ h1 {
     opacity: 1;
     transition: opacity 0.5s ease, top 0.5s ease;
 }
-
-@media (max-width: 768px) {
-    header {
-        top: 60%; /* Further down for smaller screens */
-    }
-
-    .profile-image {
-        top: 40%;
-    }
-
-
-}
-
-@media (max-width: 480px) {
-    header {
-        top: 65%;
-    }
-
-    .profile-image {
-        top: 45%;
-    }
-
-    
-}
-
-
 
 a {
     text-decoration: underline;
