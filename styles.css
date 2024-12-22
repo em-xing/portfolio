@@ -52,12 +52,14 @@ h1 {
     50% { border-color: white; }
 }
 
-
-
-
 @media (max-width: 768px) {
     header {
         top: 60%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        white-space: normal;
     }
 
     .subheading {
@@ -78,6 +80,11 @@ h1 {
 @media (max-width: 480px) {
     header {
         top: 65%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        white-space: nowrap;
     }
 
     .subheading {
