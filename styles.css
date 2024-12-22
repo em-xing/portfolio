@@ -33,32 +33,27 @@ h1 {
     font-family: 'DejaVu Sans Mono', monospace;
     font-size: 1.5em;
     margin-top: 10px;
-    white-space: nowrap;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
-    display: inline-block;
-    animation: fade-in-typing 3s steps(40, end), blink 0.6s step-end infinite;
+    white-space: nowrap;
 }
 
-@keyframes fade-in-typing {
-    from {
-        width: 0;
-        opacity: 0;
+.subheading span {
+    display: inline-block;
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+.subheading span:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
     }
     50% {
-        opacity: 0.5;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-@keyframes blink {
-    from {
-        border-color: transparent;
-    }
-    to {
-        border-color: #ffffff;
+        transform: translateY(-10px);
     }
 }
 
