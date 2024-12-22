@@ -231,3 +231,57 @@
 .grid-item[data-title="Visual Art"] .grid-image {
     object-position: top; 
 }
+@media (max-width: 768px) {
+    /* Adjust grid for smaller screens */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets and smaller */
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .grid-item {
+        font-size: 0.9em; /* Reduce text size for better readability */
+    }
+
+    .image-wrapper {
+        height: 100px; /* Reduce image height for smaller screens */
+    }
+
+    .grid-image {
+        object-fit: cover; /* Ensure images fit within smaller containers */
+        transition: transform 0.3s ease;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjust grid for mobile phones */
+    .grid-container {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+        gap: 8px;
+    }
+
+    .image-wrapper {
+        height: 80px; /* Further reduce image height for very small screens */
+    }
+
+    .grid-item p {
+        font-size: 0.8em; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line spacing */
+    }
+}
+
+/* Adjust the subheading for smaller screens */
+@media (max-width: 768px) {
+    .subheading {
+        font-size: 1.2em; /* Reduce font size for better fit */
+        width: 40ch; /* Decrease width to fit smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .subheading {
+        font-size: 1em; /* Further reduce font size for very small screens */
+        width: 30ch; /* Adjust width to match smaller screens */
+    }
+}
+
