@@ -36,8 +36,8 @@ h1 {
     border-right: 2px solid #ffffff;
     white-space: nowrap;
     overflow: hidden;
-    width: 50ch;
-    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+    display: inline-block;
+    animation: typing 4s steps(50, end), blink 0.5s step-end infinite;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
@@ -47,7 +47,7 @@ h1 {
         width: 0;
     }
     to {
-        width: 50ch;
+        width: 100%;
     }
 }
 
@@ -59,6 +59,7 @@ h1 {
         border-color: #ffffff;
     }
 }
+
 
 @media (max-width: 768px) {
     header {
@@ -98,7 +99,7 @@ h1 {
 
 .profile-image {
     position: fixed;
-    top: 40%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px;
