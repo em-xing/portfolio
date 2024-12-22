@@ -30,14 +30,14 @@ window.addEventListener('scroll', () => {
         subheading.style.opacity = '1';
     }
 
-    // Move "Emily Xing" to top-right and shrink
+    // Move "Emily Xing" to the far right and shrink
     if (scrollY > 50) {
         emilyXing.style.position = 'fixed';
         emilyXing.style.top = '10px';
-        emilyXing.style.right = '20px';
+        emilyXing.style.right = '50px'; /* Moves further to the right */
         emilyXing.style.left = 'auto';
         emilyXing.style.transform = 'none';
-        emilyXing.style.fontSize = '1.5em'; /* Shrink font size */
+        emilyXing.style.fontSize = '1.2em'; /* Shrink font size */
         emilyXing.style.transition = 'all 0.5s ease'; /* Smooth transition */
     } else {
         emilyXing.style.position = 'absolute';
