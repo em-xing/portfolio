@@ -60,10 +60,10 @@ h1 {
     .subheading {
         font-size: 1.2em;
         max-width: 90%;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        border-right: 0.15em solid white;
+        white-space: normal;
+        overflow: visible;
+        animation: none; 
+        border: none;
         line-height: 1.4;
     }
 
@@ -80,10 +80,6 @@ h1 {
     .subheading {
         font-size: 1em;
         max-width: 60%;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        border-right: 0.15em solid white;
         line-height: 1.3;
     }
 
