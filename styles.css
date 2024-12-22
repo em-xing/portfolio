@@ -29,7 +29,14 @@
             font-size: 3em;
             margin: 0;
             transition: font-size 0.5s ease;
+                
         }
+.h1-background {
+    background: rgba(0, 0, 0, 0.3); /* Faint black */
+    padding: 10px 20px; /* Add some spacing around the text */
+    border-radius: 10px; /* Optional: Rounded corners */
+    transition: background 0.5s ease; /* Smooth transition effect */
+}
 
         .subheading {
             font-family: 'DejaVu Sans Mono', monospace;
