@@ -20,17 +20,10 @@ window.addEventListener('scroll', () => {
     }
 
     // Hide profile image and subheading on scroll
-    if (scrollY > 100) {
-        profileImage.style.opacity = '0';
-        subheading.style.opacity = '0';
-        subheading.style.transition = 'opacity 0.5s ease';
-        profileImage.style.transition = 'opacity 0.5s ease';
-    } else {
-        profileImage.style.opacity = '1';
-        subheading.style.opacity = '1';
-    }
+    profileImage.style.opacity = scrollY > 100 ? '0' : '1';
+    subheading.style.opacity = scrollY > 100 ? '0' : '1';
 
-    // Make 'emily xing' smaller and move further to the top-right corner on scroll
+    // Adjust 'emily xing' position
     if (scrollY > 100) {
         emilyXing.style.fontSize = '1.2em';
         emilyXing.style.position = 'fixed';
@@ -38,7 +31,6 @@ window.addEventListener('scroll', () => {
         emilyXing.style.right = '20px';
         emilyXing.style.left = 'auto';
         emilyXing.style.transform = 'none';
-        emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
     } else {
         emilyXing.style.fontSize = '3em';
         emilyXing.style.position = 'relative';
@@ -46,20 +38,13 @@ window.addEventListener('scroll', () => {
         emilyXing.style.right = 'unset';
         emilyXing.style.left = '50%';
         emilyXing.style.transform = 'translate(-50%, -50%)';
-        emilyXing.style.transition = 'font-size 0.5s ease, top 0.5s ease, right 0.5s ease';
     }
 
-    // Show top bar on scroll
-    if (scrollY > 100) {
-        topBar.style.top = '0';
-        topBar.style.opacity = '1';
-        topBar.style.transition = 'top 0.5s ease, opacity 0.5s ease';
-    } else {
-        topBar.style.top = '-50px';
-        topBar.style.opacity = '0';
-    }
+    // Show/hide top bar
+    topBar.style.top = scrollY > 100 ? '0' : '-50px';
+    topBar.style.opacity = scrollY > 100 ? '1' : '0';
 
-    // Staggered fade in and fade out for sections
+    // Fade in/out sections
     sections.forEach((section, index) => {
         const sectionTop = section.getBoundingClientRect().top;
         const sectionBottom = section.getBoundingClientRect().bottom;
