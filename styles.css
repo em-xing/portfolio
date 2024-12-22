@@ -4,6 +4,7 @@ body, html {
     font-family: 'DejaVu Sans Mono', monospace;
     margin: 0;
     padding: 0;
+    height: 100%;
     background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
     color: #ffffff;
     transition: background 4s ease;
@@ -44,6 +45,8 @@ header {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    .content {
+
 }
 
 .top-bar {
