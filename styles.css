@@ -29,7 +29,7 @@ h1 {
     transition: font-size 0.5s ease;
 }
 
-.subheading, h2 {
+.subheading{
     font-family: 'DejaVu Sans Mono', monospace;
     font-size: 1.5em;
     margin-top: 10px;
@@ -37,8 +37,9 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     letter-spacing: 0.15em;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-    animation-fill-mode: forwards;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -51,17 +52,7 @@ h1 {
     50% { border-color: white; }
 }
 
-.subheading, h2::after {
-    content: '';
-    display: inline-block;
-    border-right: 0.15em solid transparent;
-    animation: blink-caret 0.75s step-end infinite;
-    animation-play-state: running;
-}
 
-.subheading, h2:hover::after {
-    animation-play-state: paused;
-}
 
 
 @media (max-width: 768px) {
