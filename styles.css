@@ -212,6 +212,7 @@ footer {
 .grid-item[data-title="Visual Art"] .grid-image {
     object-position: top; /* Align the Portfolio image at the top */
 }
+/* Top bar styling */
 .top-bar {
     position: fixed;
     top: 0;
@@ -225,4 +226,15 @@ footer {
     height: 80px;
     z-index: 100;
 }
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 2rem;
+    position: relative;
+    left: 40px;
+    top: 5px;
+}
+
+
+
 
