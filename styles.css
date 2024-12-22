@@ -95,12 +95,12 @@
         }
 
 .linkedin-icon {
-    position: fixed; /* Sticks to the top-right corner */
-    top: 10px; /* Distance from the top */
-    right: 10px; /* Distance from the right */
-    z-index: 100; /* Ensure it stays on top */
-    width: 40px; /* Adjust size */
-    height: 40px; /* Adjust size */
+    position: fixed; /* Sticks to a fixed position on the page */
+    top: 20px; /* Move it slightly lower from the top */
+    right: 100px; /* Move it closer to the center from the right */
+    z-index: 100; /* Ensure it stays above other elements */
+    width: 60px; /* Increase size */
+    height: 60px; /* Increase size */
     transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
@@ -112,8 +112,9 @@
 }
 
 .linkedin-icon:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.2); /* Larger zoom on hover */
 }
+
 
         .content {
             padding: 50px;
