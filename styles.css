@@ -97,7 +97,7 @@
 .linkedin-icon {
     position: fixed; /* Sticks to a fixed position on the page */
     top: 20px; /* Move it slightly lower from the top */
-    right: 100px; /* Move it closer to the center from the right */
+    right: 50px; /* Move it closer to the center from the right */
     z-index: 100; /* Ensure it stays above other elements */
     width: 60px; /* Increase size */
     height: 60px; /* Increase size */
