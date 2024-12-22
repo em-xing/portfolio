@@ -1,235 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono');
 
-body {
-    font-family: 'DejaVu Sans Mono', monospace;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
-    color: #ffffff;
-    transition: background 4s ease;
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
-}
+        body {
+            font-family: 'DejaVu Sans Mono', monospace;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #15265e, #3a506b, #5bc0be, #eac0f1);
+            color: #ffffff;
+            transition: background 4s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
 
-header {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
-    z-index: 2;
-}
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px; /* Adjust height of the top bar */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 1; /* Ensure it's behind the header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Adjust width as needed */
-    height: 100px; /* Adjust height as needed */
-    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
-    border-radius: 10px; /* Rounded corners for the block */
-    z-index: -1; /* Place it behind the header text */
-}
+        header {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            transition: transform 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+            z-index: 2; /* Keep header in front of the top bar */
+        }
 
-h1 {
-    font-family: 'DejaVu Sans Mono', monospace;
-    font-size: 3em;
-    margin: 0;
-    transition: font-size 0.5s ease;
-}
+        h1 {
+            font-family: 'DejaVu Sans Mono', monospace;
+            font-size: 3em;
+            margin: 0;
+            transition: font-size 0.5s ease;
+        }
 
+        .subheading {
+            font-family: 'DejaVu Sans Mono', monospace;
+            font-size: 1.5em;
+            margin-top: 10px;
+            border-right: 2px solid #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 50ch;
+            animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
 
-h1 {
-    font-family: 'DejaVu Sans Mono', monospace;
-    font-size: 3em;
-    margin: 0;
-    transition: font-size 0.5s ease;
-}
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 50ch;
+            }
+        }
 
-.subheading {
-    font-family: 'DejaVu Sans Mono', monospace;
-    font-size: 1.5em;
-    margin-top: 10px;
-    border-right: 2px solid #ffffff;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 50ch;
-    animation: typing 2s steps(50, end), blink 0.5s step-end infinite;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
+        @keyframes blink {
+            from {
+                border-color: transparent;
+            }
+            to {
+                border-color: #ffffff;
+            }
+        }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 50ch;
-    }
-}
+        a {
+            text-decoration: underline;
+            color: white;
+            transition: color 0.3s ease;
+        }
 
-@keyframes blink {
-    from {
-        border-color: transparent;
-    }
-    to {
-        border-color: #ffffff;
-    }
-}
+        a:hover {
+            color: purple;
+        }
 
-a {
-    text-decoration: underline;
-    color: white;
-    transition: color 0.3s ease;
-}
+        .profile-image {
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
+            background-size: cover;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.5s ease, top 0.5s ease;
+        }
 
-a:hover {
-    color: purple;
-}
+        .content {
+            padding: 50px;
+            margin-top: 120vh;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
 
-.profile-image {
-    position: fixed;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
-    background-size: cover;
-    z-index: 3;
-    opacity: 1;
-    transition: opacity 0.5s ease, top 0.5s ease;
-}
+        .column {
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: white;
+            text-align: left;
+            margin-bottom: 50px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
 
-.content {
-    padding: 50px;
-    margin-top: 120vh;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
+        .column h2 {
+            font-family: 'DejaVu Sans Mono', monospace;
+            margin: 0 0 20px;
+            font-size: 2em;
+        }
 
-.column {
-    font-family: 'DejaVu Sans Mono', monospace;
-    color: white;
-    text-align: left;
-    margin-bottom: 50px;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
+        .column p, .column ul {
+            margin: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
 
-.column h2 {
-    font-family: 'DejaVu Sans Mono', monospace;
-    margin: 0 0 20px;
-    font-size: 2em;
-}
+        footer {
+            background: #3a506b;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            margin-top: 50px;
+        }
 
-.column p, .column ul {
-    margin: 0;
-    font-size: 1.1em;
-    line-height: 1.6;
-}
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+            gap: 20px;
+            padding: 16px;
+            text-align: center;
+        }
 
-footer {
-    background: #3a506b;
-    text-align: center;
-    padding: 20px;
-    color: #ffffff;
-    margin-top: 50px;
-}
+        .grid-item {
+            text-align: center;
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: white;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
 
+        .image-wrapper {
+            width: 100%;
+            height: 150px; /* Set uniform height */
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
 
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: 20px;
-    padding: 16px;
-    text-align: center;
-}
-
-/* General styles for grid items */
-.grid-item {
-    text-align: center;
-    font-family: 'DejaVu Sans Mono', monospace;
-    color: white;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Image wrapper ensures consistent dimensions */
-.image-wrapper {
-    width: 100%;
-    height: 150px; /* Set uniform height */
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
-}
-
-/* General styles for grid items */
-.grid-item {
-    text-align: center;
-    font-family: 'DejaVu Sans Mono', monospace;
-    color: white;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    margin-top: 0px; /* Adjust spacing above the grid item, if needed */
-}
-
-/* Image wrapper ensures consistent dimensions */
-.image-wrapper {
-    width: 100%;
-    height: 150px; /* Set uniform height */
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
-    margin-bottom: 30px; /* Add more spacing between image and text */
-}
-
-/* Base styles for all grid images */
-.grid-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop and center the images */
-    transition: transform 0.3s ease;
-}
-
-
-/* Specific styles for New York Times */
-.grid-item[data-title="New York Times"] .grid-image {
-    object-position: 10% top; /* Move New York Times image slightly higher */
-}
-
-
-/* Specific styles for HUUSL */
-.grid-item[data-title="HUUSL"] .grid-image {
-    transform: scale(1.1); /* Zoom in 110% */
-    transition: transform 0.3s ease; /* Smooth zoom effect */
-}
-
-/* Hover effect for all grid images */
-.grid-item:hover .grid-image {
-    transform: scale(1.15); /* Slight zoom effect on hover */
-}
-
-.grid-item[data-title="HUUSL"]:hover .grid-image {
-    transform: scale(1.2); /* Larger zoom effect for HUUSL on hover */
-}
-
-/* Add spacing between images and text descriptions */
-.grid-item p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-top: 15px; /* Further increase spacing between images and text */
-}
-
-.grid-item[data-title="MDandMe"] .grid-image {
-    object-position: 15% center; /* Slightly higher than centered */
-}
-.grid-item[data-title="Visual Art"] .grid-image {
-    object-position: top; /* Align the Portfolio image at the top */
-}
+        .grid-item p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
