@@ -18,9 +18,9 @@
             left: 0;
             width: 100%;
             height: 80px; /* Adjust height of the top bar */
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient fade */
             z-index: 1; /* Ensure it's behind the header */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            pointer-events: none; /* Ensure it doesn't block interaction with other elements */
         }
 
         header {
@@ -81,27 +81,9 @@
             color: purple;
         }
 
-        .profile-image {
-            position: fixed;
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: url('images/Screenshot 2024-12-20 at 10.22.13 PM.png') no-repeat center center;
-            background-size: cover;
-            z-index: 3;
-            opacity: 1;
-            transition: opacity 0.5s ease, top 0.5s ease;
-        }
-
         .content {
             padding: 50px;
-            margin-top: 120vh;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            margin-top: 100px; /* Adjust margin to account for the top bar */
         }
 
         .column {
@@ -132,33 +114,4 @@
             padding: 20px;
             color: #ffffff;
             margin-top: 50px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-            gap: 20px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .grid-item {
-            text-align: center;
-            font-family: 'DejaVu Sans Mono', monospace;
-            color: white;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .image-wrapper {
-            width: 100%;
-            height: 150px; /* Set uniform height */
-            overflow: hidden;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .grid-item p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-top: 15px;
         }
