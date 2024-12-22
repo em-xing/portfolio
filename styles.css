@@ -39,7 +39,7 @@ h1 {
 
 .subheading {
     font-size: 1.5em;
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
     white-space: nowrap;
     overflow: hidden;
