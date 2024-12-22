@@ -54,7 +54,7 @@ h1 {
 @media (min-width: 769px) {
     .subheading {
         font-size: 1.5em;
-        max-width: 90%;
+        max-width: 100%;
         white-space: nowrap;
         overflow: hidden;
         border-right: 0.15em solid white;
