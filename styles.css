@@ -42,9 +42,9 @@
     font-size: 1.5em;
     max-width: 90%;
     margin: 0 auto;
-    white-space: normal;
+    white-space: nowrap;
     overflow: hidden;
-    display: inline-block;
+    display: block;
     border-right: 2px solid #ffffff;
     unicode-bidi: plaintext;
     text-rendering: optimizeLegibility;
@@ -55,7 +55,11 @@
     .subheading {
         font-size: 1.2em;
         max-width: 80%;
-        animation: typing 4.5s steps(40, end), blink 0.5s step-end infinite;
+        white-space: normal;
+        overflow: visible;
+        animation: none;
+        border: none;
+        line-height: 1.4;
     }
 }
 
@@ -63,7 +67,7 @@
     .subheading {
         font-size: 1em;
         max-width: 70%;
-        animation: typing 5s steps(30, end), blink 0.5s step-end infinite;
+        line-height: 1.5;
     }
 }
 
@@ -84,7 +88,6 @@
         border-color: #ffffff;
     }
 }
-
 
         a {
             text-decoration: underline;
