@@ -1,9 +1,11 @@
+let lastScrollY = 0;
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const sections = document.querySelectorAll('.column');
     const profileImage = document.querySelector('.profile-image');
     const subheading = document.querySelector('.subheading');
-
+    const emilyXing = document.querySelector('header h1');
     const scrollY = window.scrollY;
 
     // Adjust header position
@@ -21,11 +23,18 @@ window.addEventListener('scroll', () => {
     if (scrollY > 100) {
         profileImage.style.opacity = '0';
         subheading.style.opacity = '0';
-        subheading.style.transition = 'opacity 0.5s ease';
         profileImage.style.transition = 'opacity 0.5s ease';
+        subheading.style.transition = 'opacity 0.5s ease';
     } else {
         profileImage.style.opacity = '1';
         subheading.style.opacity = '1';
+    }
+
+    // Add or remove faint black background on "emily xing"
+    if (scrollY > 50) {
+        emilyXing.classList.add('h1-background');
+    } else {
+        emilyXing.classList.remove('h1-background');
     }
 
     // Staggered fade in and fade out for sections
@@ -42,4 +51,7 @@ window.addEventListener('scroll', () => {
             section.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         }
     });
+
+    // Update last scroll position
+    lastScrollY = scrollY;
 });
