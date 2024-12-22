@@ -1,5 +1,3 @@
-let lastScrollY = 0;
-
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const sections = document.querySelectorAll('.column');
@@ -8,44 +6,25 @@ window.addEventListener('scroll', () => {
     const emilyXing = document.querySelector('header h1');
     const scrollY = window.scrollY;
 
-    // Adjust header position
+    // Adjust header opacity based on scroll
     if (scrollY > 100) {
-        header.style.top = '10%';
-        header.style.transform = 'translate(-50%, 0)';
         header.style.opacity = '0.8';
     } else {
-        header.style.top = '50%';
-        header.style.transform = 'translate(-50%, -50%)';
         header.style.opacity = '1';
     }
 
-    // Hide profile image and subheading on scroll
+    // Fade out profile image, subheading, and "Emily Xing" on scroll
     if (scrollY > 100) {
         profileImage.style.opacity = '0';
         subheading.style.opacity = '0';
+        emilyXing.style.opacity = '0';
         profileImage.style.transition = 'opacity 0.5s ease';
         subheading.style.transition = 'opacity 0.5s ease';
+        emilyXing.style.transition = 'opacity 0.5s ease';
     } else {
         profileImage.style.opacity = '1';
         subheading.style.opacity = '1';
-    }
-
-    // Move "Emily Xing" to the far right and shrink
-    if (scrollY > 50) {
-        emilyXing.style.position = 'fixed';
-        emilyXing.style.top = '10px';
-        emilyXing.style.right = '50px'; /* Moves further to the right */
-        emilyXing.style.left = 'auto';
-        emilyXing.style.transform = 'none';
-        emilyXing.style.fontSize = '1.2em'; /* Shrink font size */
-        emilyXing.style.transition = 'all 0.5s ease'; /* Smooth transition */
-    } else {
-        emilyXing.style.position = 'absolute';
-        emilyXing.style.top = '50%';
-        emilyXing.style.left = '50%';
-        emilyXing.style.right = 'auto';
-        emilyXing.style.transform = 'translate(-50%, -50%)';
-        emilyXing.style.fontSize = '3em'; /* Reset font size */
+        emilyXing.style.opacity = '1';
     }
 
     // Staggered fade in and fade out for sections
@@ -62,7 +41,4 @@ window.addEventListener('scroll', () => {
             section.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         }
     });
-
-    // Update last scroll position
-    lastScrollY = scrollY;
 });
